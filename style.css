@@ -7,11 +7,16 @@
   --border-radius: 1.25rem;
   --box-shadow: 0px 5px 0px 0px rgba(69, 67, 96, 0.1);
   /* Color Variables */
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 92%);
+  --primary-color-hue: 352;
   --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(352, 75%, 60%);
-  --color-dark: hsl(252, 30%, 17%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+  --dark-color-lightness: 17%;
+  --light-color-lightness: 92%;
+  --white-color-lightness: 100%;
+
+  --color-white: hsl(252, 30%, var(--white-color-lightness));
+  --color-light: hsl(252, 30%, var(--light-color-lightness));
+  --color-dark: hsl(252, 30%, var(--dark-color-lightness));
   /* Fonts and Typography */
   --body-font: "Rubik", sans-serif;
   /* Sizes */
@@ -633,10 +638,11 @@ h3 {
 }
 
 .customize-theme .choose-color span {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
   background-color: var(--color-primary);
   border-radius: 50%;
+  transition: 0.3s;
 }
 
 .customize-theme .choose-color span:hover {
@@ -664,7 +670,7 @@ h3 {
 }
 
 .customize-theme .choose-color span.active {
-  border: 5px solid #fff;
+  transform: scale(1.2);
 }
 
 .customize-theme .background {
@@ -704,11 +710,11 @@ h3 {
 .customize-theme .choose-bg > div > span {
   width: 1.4rem;
   height: 1.4rem;
-  border: 2px solid var(--color-gray);
+  border: 2px solid var(--color-primary);
   border-radius: 50%;
 }
 
-.customize-theme .choose-bg > div.active {
+.customize-theme .choose-bg > .active {
   border: 2px solid var(--color-primary);
 }
 
@@ -743,16 +749,6 @@ h3 {
     max-width: 50%;
     margin-bottom: var(--m-1-5);
   }
-}
-
-@media screen and (max-width: 768px) {
-
-  .show-menu {
-    right: 0 !important;
-  }
-  .customize-theme .card {
-    width: 75vw;
-  }
   .nav {
     height: var(--header-height);
   }
@@ -760,8 +756,8 @@ h3 {
     flex-direction: column;
     row-gap: 1.5rem;
   }
-  .container {
-    max-width: 568px;
+  .show-menu {
+    right: 0 !important;
   }
   .nav-menu {
     position: fixed;
@@ -776,12 +772,21 @@ h3 {
     z-index: 100;
     transition: 0.3s;
   }
-  /* show menu */
   .nav-toggle {
     margin-left: 1rem;
   }
   .nav-close, .nav-toggle {
     display: inline-flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .customize-theme .card {
+    width: 75vw;
+  }
+  .container {
+    max-width: 568px;
   }
   .about-content .about-text,.about-content .skills {
     flex: 0 0 100%;
