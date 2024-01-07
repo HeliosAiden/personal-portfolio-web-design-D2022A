@@ -155,3 +155,14 @@ Bg3.addEventListener('click',() => {
   Bg2.classList.add('active')
   changeBG()
 })
+
+const filterContainer = document.querySelector(".portfolio-item-inner"),
+      filterBtns = filterContainer.children,
+      totalFilterBtns = filterBtns.length
+
+      for (let i = 0; i < totalFilterBtns; i++) {
+        filterBtns[i].addEventListener('click', () => {
+          document.querySelector('.active').classList.remove('active');
+          this.classList.add('active');
+        })
+      }
