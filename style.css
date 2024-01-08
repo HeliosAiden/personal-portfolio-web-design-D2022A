@@ -402,6 +402,7 @@ h3 {
   cursor: pointer;
   white-space: nowrap;
   transition: 0.3s;
+  color: var(--color-dark);
 }
 
 .portfolio .portfolio-filter button.active {
@@ -423,6 +424,26 @@ h3 {
   flex: 0 0 33.33%;
   max-width: 33.33%;
   margin-bottom: var(--m-1-5);
+}
+
+@keyframes showItem {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.portfolio-item.hide {
+  display: none;
+}
+
+.portfolio-item.show {
+  display: block;
+  animation: showItem 0.5s ease;
 }
 
 .portfolio-item-inner {
@@ -557,7 +578,7 @@ h3 {
 /* Footer */
 
 .footer {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 .footer-text {
@@ -695,8 +716,8 @@ h3 {
 }
 
 .customize-theme .choose-bg .bg-1 {
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background-color: hsl(252, 30%, 92%);
+  color: hsl(252, 30%, 17%);
 }
 .customize-theme .choose-bg .bg-2 {
   background-color: hsl(252, 30%, 20%);
