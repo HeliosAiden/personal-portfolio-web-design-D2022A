@@ -449,16 +449,28 @@ h3 {
 .portfolio-item-inner {
   position: relative;
   overflow: hidden;
+  border-radius: 0.5rem;
 }
 
 .portfolio-item-inner:hover .mask {
   opacity: 0.9;
+  cursor: pointer;
 }
 
 .portfolio-item-inner:hover h3,
 .portfolio-item-inner:hover span {
   opacity: 1;
   transform: translateY(0);
+}
+
+.portfolio-item-thumbnail {
+  overflow: hidden;
+}
+
+.portfolio-item-inner img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .portfolio-item .mask {
