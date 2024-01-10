@@ -32,14 +32,6 @@ const scrollHeader = () => {
 
 window.addEventListener("scroll", scrollHeader);
 
-var swiper = new Swiper(".testimonial-wrapper", {
-  loop: "true",
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
 const theme = document.querySelector("#theme-button");
 const themeModal = document.querySelector(".customize-theme");
 
@@ -156,36 +148,9 @@ Bg3.addEventListener("click", () => {
   changeBG();
 });
 
-const filterContainer = document.querySelector(".portfolio-inner"),
-  filterBtns = filterContainer.children,
-  totalFilterBtns = filterBtns.length,
-  portfolioItems = document.querySelectorAll(".portfolio-item"),
-  totalPortfolioItem = portfolioItems.length;
 
-for (let i = 0; i < totalFilterBtns; i++) {
-  filterBtns[i].addEventListener("click", (e) => {
-    document.querySelector(".active").classList.remove("active");
-    e.target.classList.add("active");
-
-    const filterValue = e.target.getAttribute("data-filter");
-    for (let k = 0; k < totalPortfolioItem; k++) {
-      if (filterValue === portfolioItems[k].getAttribute("data-category")) {
-        portfolioItems[k].classList.remove("hide");
-        portfolioItems[k].classList.add("show");
-      } else {
-        portfolioItems[k].classList.add("hide");
-        portfolioItems[k].classList.remove("show");
-      }
-      if (filterValue === "all") {
-        portfolioItems[k].classList.remove("hide");
-        portfolioItems[k].classList.add("show");
-      }
-    }
-  });
-}
 
 const sections = document.querySelectorAll("section[id]")
-
 const navHighLighter = () => {
   let scrollY = window.scrollY
   sections.forEach(i => {
@@ -199,5 +164,4 @@ const navHighLighter = () => {
     }
   })
 }
-
 window.addEventListener("scroll", navHighLighter)
