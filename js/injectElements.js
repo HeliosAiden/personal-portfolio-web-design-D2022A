@@ -1,9 +1,8 @@
 const rootURL = window.location.origin
-export const createElement = (input) => {
-    const {el, id, path, className, images = [], style = null} = input
-  const element = document.createElement(`${el}`);
-  element.id = id
-  element.className = className
+export const injectElement = (input) => {
+  const {id, path, images = [], style = null} = input
+  const element = document.getElementById(`${id}`)
+  console.log(element)
   if (!element) return;
   try {
     fetch(`${rootURL}/${path}`)
@@ -53,5 +52,4 @@ export const createElement = (input) => {
   } catch (err) {
     console.log(err);
   }
-  return element
 };
