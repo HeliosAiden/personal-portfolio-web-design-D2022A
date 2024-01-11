@@ -21,20 +21,17 @@ const mainComponets = [
     id: "footer",
     path: `components/footer.html`,
   },
-];
-
-const bodyElements = [
   {
     id: "header",
     path: `components/header.html`
+  },
+  {
+    id: "style",
+    path: `components/customize.html`
   }
-]
+];
 
 // Inject components into main
 mainComponets.map((i) => {
   injectElement(i);
 });
-
-bodyElements.map(i => {
-  injectElement(i);
-})
