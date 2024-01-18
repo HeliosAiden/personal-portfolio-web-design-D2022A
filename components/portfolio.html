@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="1">
+    <div class="portfolio-item padd-15" data-category="1" iframe-src="posts/lesson_4/excercise_2/index.html" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -32,7 +32,7 @@
       </div>
     </div>
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="2">
+    <div class="portfolio-item padd-15" data-category="2" iframe-src="" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -47,7 +47,7 @@
       </div>
     </div>
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="3">
+    <div class="portfolio-item padd-15" data-category="3" iframe-src="" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -62,7 +62,7 @@
       </div>
     </div>
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="4">
+    <div class="portfolio-item padd-15" data-category="4" iframe-src="" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -77,7 +77,7 @@
       </div>
     </div>
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="5">
+    <div class="portfolio-item padd-15" data-category="5" iframe-src="" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -92,7 +92,7 @@
       </div>
     </div>
     <!-- portfolio item -->
-    <div class="portfolio-item padd-15" data-category="6">
+    <div class="portfolio-item padd-15" data-category="6" iframe-src="" >
       <div class="portfolio-item-inner">
         <div class="portfolio-item-thumbnail">
           <img
@@ -109,11 +109,33 @@
   </div>
 </div>
 <script>
+  const iFrameBox = document.querySelector("#iframe")
+
+  const showIframe = item => {
+    const iframeSrc = item.getAttribute("iframe-src")
+    const mainIframe = iFrameBox.querySelector("iframe")
+    mainIframe.src = iframeSrc
+    iFrameBox.style.display = "block"
+  }
+
+  const closeIframe = () => {
+    iFrameBox.style.display = "none"
+  }
+
+  iFrameBox.addEventListener("click", closeIframe)
+
   const filterContainer = document.querySelector(".portfolio-inner"),
     filterBtns = filterContainer.children,
     totalFilterBtns = filterBtns.length,
     portfolioItems = document.querySelectorAll(".portfolio-item"),
     totalPortfolioItem = portfolioItems.length;
+
+    [...portfolioItems].map(item => {
+      const mask = item.querySelector(".mask")
+      mask.addEventListener("click", e => {
+        showIframe(item)
+      })
+    })
 
   for (let i = 0; i < totalFilterBtns; i++) {
     filterBtns[i].addEventListener("click", (e) => {
