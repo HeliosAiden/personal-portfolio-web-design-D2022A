@@ -1,9 +1,11 @@
+const root = 'personal-portfolio-web-design-D2022A'
+
 export const injectElement = (input) => {
   const {id, path, images = [], style = null} = input
   const element = document.getElementById(`${id}`)
   if (!element) return;
   try {
-    fetch(`./${path}`)
+    fetch(`${root}/${path}`)
       .then((res) => res.text())
       .then((data) => {
         element.innerHTML = data;
