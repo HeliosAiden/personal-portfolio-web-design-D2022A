@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form for user</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .wrapper {
+      margin: 100px auto;
+      width: 40%;
+    }
+  </style>
+
+  <body>
+    <div class="wrapper">
+      <h2>Form đăng ký</h2>
+      <br />
+      <br />
+      <form action="#" onsubmit="validateForm(event)">
+        <label for="fname" style="margin-right: 12px">Họ:</label>
+        <input type="text" id="fname" name="fname" />
+        <br />
+        <br />
+        <label for="lname" style="margin-right: 8px">Tên:</label>
+        <input type="text" id="lname" name="lname" />
+        <br />
+        <br />
+        <label for="DoB"
+          >Ngay sinh: Ngày
+          <select
+            name="date"
+            id="b_date"
+            style="margin-left: 4px; margin-right: 12px"
+          ></select>
+          Tháng
+          <select
+            name="month"
+            id="b_month"
+            style="margin-left: 4px; margin-right: 12px"
+          ></select>
+          Năm
+          <select
+            name="year"
+            id="b_year"
+            style="margin-left: 4px; margin-right: 12px"
+          ></select>
+        </label>
+        <br /><br />
+        <label for="sex">Giới tính:</label>
+        <input type="radio" id="male" name="sex" value="nam" />
+        <label for="male">Nam</label>
+        <input type="radio" id="female" name="sex" value="nu" />
+        <label for="male">Nữ</label>
+        <br />
+        <br />
+        <label for="phone">Số điện thoại</label>
+        <input type="number" name="phone" id="phone" />
+        <br />
+        <br />
+        <label for="hobbies">Sở thích:</label>
+        <input type="checkbox" name="hobbies" id="read" />
+        <label for="hobbies">đọc sách</label>
+        <input type="checkbox" name="hobbies" id="movies" />
+        <label for="hobbies">xem phim</label>
+        <input type="checkbox" name="hobbies" id="music" />
+        <label for="hobbies">nghe nhạc</label>
+        <input type="checkbox" name="hobbies" id="football" />
+        <label for="hobbies">đá bóng</label>
+        <br />
+        <br />
+        <label for="others">Khác:</label>
+        <textarea name="message" rows="3" cols="30"></textarea>
+        <br />
+        <br />
+        <input
+          type="submit"
+          value="Submit"
+          style="padding: 6px 24px; border-radius: 8px; margin-right: 24px"33211
+        />
+        <input type="reset" value="Reset Form" style="padding: 6px 24px; border-radius: 8px;">
+      </form>
+    </div>
+    <script>
+      function validateForm(e) {
+        const form = e.target;
+        const firstName = form.querySelector("#fname").value;
+        const lastName = form.querySelector("#lname").value;
+        const phoneNumb = form.querySelector("#phone").value;
+        if (firstName == "" || !firstName) {
+          alert(`Họ không hợp lệ: ${firstName}, vui lòng nhập lại`);
+          return false;
+        }
+        if (lastName == "" || !lastName) {
+          alert(`Tên không hợp lệ: ${lastName}, vui lòng nhập lại`);
+          return false;
+        }
+        if (phoneNumb.length > 10 || !phoneNumb || phoneNumb == "") {
+          alert(`Số điện thoại không hợp lệ: ${phoneNumb}, vui lòng nhập lại`);
+          return false;
+        }
+        alert(
+          `Xin chào ${
+            firstName + " " + lastName
+          }, bạn đã đăng ký tài khoản với số điện thoại: ${phoneNumb}`
+        );
+      }
+      const dateSelect = document.querySelector("#b_date");
+      const monthSelect = document.querySelector("#b_month");
+      const yearSelect = document.querySelector("#b_year");
+      for (let i = 0; i <= 31; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.innerHTML = i;
+        if (i == 0) {
+          option.selected = true;
+        }
+        dateSelect.appendChild(option);
+      }
+      for (let i = 0; i <= 12; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.innerHTML = i;
+        if (i == 0) {
+          option.selected = true;
+        }
+        monthSelect.appendChild(option);
+      }
+      for (let i = 1900; i <= 2024; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.innerHTML = i;
+        if (i == 0) {
+          option.selected = true;
+        }
+        yearSelect.appendChild(option);
+      }
+    </script>
+  </body>
+</html>

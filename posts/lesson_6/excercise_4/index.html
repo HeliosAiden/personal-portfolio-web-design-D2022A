@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Các phép tính</h2>
+    <br /><br />
+    <div class="form-wrapper">
+      <form
+        id="plus-form"
+        act="#"
+        style="display: flex; flex-wrap: wrap; gap: 8px"
+      >
+        <label for="text">Phép cộng</label>
+        <input class="number" type="number" required />
+        <span style="margin-right: 4px">+</span>
+        <input class="number" type="number" required />
+        <input id="submit-plus" type="submit" value="=" />
+        <input id="result" type="number" />
+      </form>
+      <form
+        id="minus-form"
+        action="#"
+        style="display: flex; flex-wrap: wrap; gap: 8px"
+      >
+        <label for="text" style="margin-right: 12px">Phép trừ</label>
+        <input class="number" type="number" required />
+        <span style="margin-right: 8px">-</span>
+        <input class="number" type="number" required />
+        <input id="submit-minus" type="submit" value="=" />
+        <input id="result" type="number" />
+      </form>
+      <form
+        id="multiply-form"
+        action="#"
+        style="display: flex; flex-wrap: wrap; gap: 8px"
+      >
+        <label for="text">Phép nhân</label>
+        <input class="number" type="number" required />
+        <span style="margin-right: 4px">x</span>
+        <input class="number" type="number" required />
+        <input id="submit-multiply" type="submit" value="=" />
+        <input id="result" type="number" />
+      </form>
+      <form
+        id="divide-form"
+        action="#"
+        style="display: flex; flex-wrap: wrap; gap: 8px"
+        onsubmit="validate(event)"
+      >
+        <label for="text" style="margin-right: 4px">Phép chia</label>
+        <input class="number" type="number" required />
+        <span style="margin-right: 8px">/</span>
+        <input class="number" type="number" required />
+        <input id="submit-divide" type="submit" value="=" />
+        <input id="result" type="number" />
+      </form>
+      <br /><br />
+      <h2>Các phép toán vừa thực hiện</h2>
+      <div class="wrapper">
+        <div class="box-plus">
+          <span>Phép cộng: </span>
+          <span id="opt-plus" class="opt"></span>
+        </div>
+        <div class="box-minus">
+          <span>Phép trừ: </span>
+          <span id="opt-minus" class="opt"></span>
+        </div>
+        <div class="box-multiply">
+          <span>Phép nhân: </span>
+          <span id="opt-multiply" class="opt"></span>
+        </div>
+        <div class="box-divide">
+          <span>Phép chia: </span>
+          <span id="opt-divide" class="opt"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      const forms = document.querySelectorAll("form[id*=-form]");
+      const opts = [...document.querySelectorAll("span[id*=opt]")];
+      const boxes = [...document.querySelectorAll("div[class*=box-]")];
+
+      const validate = e => {
+        const form = event.target
+        const action = form.id.split("-")[0];
+      }
+
+      const calc = (act, r, bx) => {
+        let result, calculation;
+        if (act == "plus") {
+          result = arg1 + arg2;
+          calculation = `${arg1} + ${arg2} = ${result}`;
+        }
+        if (act == "minus") {
+          result = arg1 - arg2;
+          calculation = `${arg1} - ${arg2} = ${result}`;
+        }
+        if (act == "multiply") {
+          result = arg1 * arg2;
+          calculation = `${arg1} * ${arg2} = ${result}`;
+        }
+        if (act == "divide") {
+          result = arg1 / arg2;
+          calculation = `${arg1} / ${arg2} = ${result}`;
+        }
+        r.value = result;
+        bx.innerHTML = calculation;
+        removeActive();
+        enableActive(act);
+      };
+
+      const removeActive = () => boxes.map(i => i.classList.remove("active"));
+      const enableActive = (ac) => document.querySelector(`div[class*=box-${ac}`).classList.add("active");
+
+      [...forms].map((i, index) => {
+        const action = i.id.split("-")[0];
+        const submitButton = i.querySelector(`#submit-${action}`);
+        submitButton.addEventListener("click", () => {
+          const inputs = i.querySelectorAll("input.number");
+          const resultBox = i.querySelector("input#result");
+          arg1 = Number([...inputs][0].value);
+          arg2 = Number([...inputs][1].value);
+          calc(action, resultBox, opts[index]);
+        });
+      });
+    </script>
+  </body>
+</html>

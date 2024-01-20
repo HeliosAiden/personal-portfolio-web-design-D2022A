@@ -81,7 +81,7 @@
     let scrollY = window.scrollY;
     sections.forEach((i) => {
       const sectionHeight = i.offsetHeight;
-      const sectionTop = i.offsetTop - 50;
+      const sectionTop = i.offsetTop - 200;
       const sectionId = i.getAttribute("id");
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         document

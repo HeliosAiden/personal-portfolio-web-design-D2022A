@@ -455,6 +455,7 @@ h3 {
 .portfolio-item-inner:hover .mask {
   opacity: 0.9;
   cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 .portfolio-item-inner:hover h3,
@@ -878,7 +879,7 @@ h3 {
   display: block;
   width: 90%;
   height: 90%;
-  background-color: var(--color-light);
+  background-color: hsl(252, 30%, 92%);
   border-radius: var(--border-radius);
 }
 
