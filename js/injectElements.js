@@ -1,10 +1,9 @@
-const rootURL = window.location.origin
 export const injectElement = (input) => {
   const {id, path, images = [], style = null} = input
   const element = document.getElementById(`${id}`)
   if (!element) return;
   try {
-    fetch(`${rootURL}/${path}`)
+    fetch(`./${path}`)
       .then((res) => res.text())
       .then((data) => {
         element.innerHTML = data;
