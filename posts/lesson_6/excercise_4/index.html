@@ -16,8 +16,9 @@
     <div class="form-wrapper">
       <form
         id="plus-form"
-        act="#"
+        action="#"
         style="display: flex; flex-wrap: wrap; gap: 8px"
+        onsubmit="return false"
       >
         <label for="text">Phép cộng</label>
         <input class="number" type="number" required />
@@ -30,6 +31,7 @@
         id="minus-form"
         action="#"
         style="display: flex; flex-wrap: wrap; gap: 8px"
+        onsubmit="return false"
       >
         <label for="text" style="margin-right: 12px">Phép trừ</label>
         <input class="number" type="number" required />
@@ -42,6 +44,7 @@
         id="multiply-form"
         action="#"
         style="display: flex; flex-wrap: wrap; gap: 8px"
+        onsubmit="return false"
       >
         <label for="text">Phép nhân</label>
         <input class="number" type="number" required />
@@ -54,7 +57,7 @@
         id="divide-form"
         action="#"
         style="display: flex; flex-wrap: wrap; gap: 8px"
-        onsubmit="validate(event)"
+        onsubmit="return false"
       >
         <label for="text" style="margin-right: 4px">Phép chia</label>
         <input class="number" type="number" required />
@@ -89,11 +92,6 @@
       const opts = [...document.querySelectorAll("span[id*=opt]")];
       const boxes = [...document.querySelectorAll("div[class*=box-]")];
 
-      const validate = e => {
-        const form = event.target
-        const action = form.id.split("-")[0];
-      }
-
       const calc = (act, r, bx) => {
         let result, calculation;
         if (act == "plus") {
@@ -118,8 +116,9 @@
         enableActive(act);
       };
 
-      const removeActive = () => boxes.map(i => i.classList.remove("active"));
-      const enableActive = (ac) => document.querySelector(`div[class*=box-${ac}`).classList.add("active");
+      const removeActive = () => boxes.map((i) => i.classList.remove("active"));
+      const enableActive = (ac) =>
+        document.querySelector(`div[class*=box-${ac}`).classList.add("active");
 
       [...forms].map((i, index) => {
         const action = i.id.split("-")[0];
