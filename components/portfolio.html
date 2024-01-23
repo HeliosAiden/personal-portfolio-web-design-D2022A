@@ -15,90 +15,60 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <!-- portfolio item -->
-    <div
-      class="portfolio-item padd-15"
-      data-category="4"
-      iframe-src="posts/lesson_4/excercise_2/index.html"
-    >
-      <div class="portfolio-item-inner">
-        <div class="portfolio-item-thumbnail">
-          <img src="images/4/2.png" alt="lesson_4-excercise_2" />
-          <div class="mask"></div>
-        </div>
-        <span class="term">Buổi 4</span>
-        <h3 class="portfolio-title">Bài 2 buổi 4</h3>
-        <span class="more-button"> &hellip; </span>
-      </div>
-    </div>
-    <!-- portfolio item -->
-    <div
-      class="portfolio-item padd-15"
-      data-category="6"
-      iframe-src="posts/lesson_6/excercise_1/index.html"
-    >
-      <div class="portfolio-item-inner">
-        <div class="portfolio-item-thumbnail">
-          <img src="images/6/1.png" alt="lesson_6-excercise_1" />
-          <div class="mask"></div>
-        </div>
-        <span class="term">Buổi 6</span>
-        <h3 class="portfolio-title">Bài 1, buổi 6</h3>
-        <span class="more-button"> &hellip; </span>
-      </div>
-    </div>
-    <!-- portfolio item -->
-    <div
-      class="portfolio-item padd-15"
-      data-category="6"
-      iframe-src="posts/lesson_6/excercise_2/index.html"
-    >
-      <div class="portfolio-item-inner">
-        <div class="portfolio-item-thumbnail">
-          <img src="images/6/2.png" alt="lesson_6-excercise_2" />
-          <div class="mask"></div>
-        </div>
-        <span class="term">Buổi 6</span>
-        <h3 class="portfolio-title">Bài 2 buổi 6</h3>
-        <span class="more-button"> &hellip; </span>
-      </div>
-    </div>
-    <!-- portfolio item -->
-    <div
-      class="portfolio-item padd-15"
-      data-category="6"
-      iframe-src="posts/lesson_6/excercise_3/index.html"
-    >
-      <div class="portfolio-item-inner">
-        <div class="portfolio-item-thumbnail">
-          <img src="images/6/3.png" alt="lesson_6-excercise_3" />
-          <div class="mask"></div>
-        </div>
-        <span class="term">Buổi 6</span>
-        <h3 class="portfolio-title">Bài 3 buổi 6</h3>
-        <span class="more-button"> &hellip; </span>
-      </div>
-    </div>
-    <!-- portfolio item -->
-    <div
-      class="portfolio-item padd-15"
-      data-category="6"
-      iframe-src="posts\lesson_6\excercise_4\index.html"
-    >
-      <div class="portfolio-item-inner">
-        <div class="portfolio-item-thumbnail">
-          <img src="images/6/4.png" alt="lesson_6-excercise_4" />
-          <div class="mask"></div>
-        </div>
-        <span class="term">Buổi 6</span>
-        <h3 class="portfolio-title">Bài 4, buổi 6</h3>
-        <span class="more-button"> &hellip; </span>
-      </div>
-    </div>
-  </div>
+  <div class="row" id="portfolio-items"></div>
 </div>
-<script>
+<script type="module">
+  import portfolios from "./constants/portfolio.js";
+
+  // Generate portfolio item
+  const generatePortfolio = (item) => {
+    const container = document.createElement("div");
+    container.classList = "portfolio-item padd-15";
+    container.setAttribute("data-category", item.data);
+    container.setAttribute("iframe-src", item.iframe);
+
+    // Generate thumbnail
+    const thumbnail = document.createElement("div");
+    thumbnail.className = "portfolio-item-thumbnail";
+    const img = document.createElement("img");
+    img.src = item.image.src;
+    img.alt = item.image.alt;
+    const mask = document.createElement("div");
+    mask.className = "mask";
+    thumbnail.append(img, mask);
+
+    // Generate term
+    const term = document.createElement("span");
+    term.className = "term";
+    term.innerText = item.term;
+
+    // Generate title
+    const title = document.createElement("h3");
+    title.className = "portfolio-title";
+    title.innerText = item.title;
+
+    // Generate more button
+    const more = document.createElement("div");
+    more.className = "more-button";
+    more.innerHTML = "&hellip";
+
+    // Generate inner portfolio
+    const content = document.createElement("div");
+    content.className = "portfolio-item-inner";
+    content.append(thumbnail, term, title, more);
+    container.appendChild(content);
+
+    return container;
+  };
+
+  // append portfolioItem to portfolioContainer
+  const portfolioContainer = document.querySelector("div#portfolio-items");
+  portfolios.map((item) => {
+    const portfolioItem = generatePortfolio(item);
+    portfolioContainer.appendChild(portfolioItem);
+  });
+
+  //Iframe
   const iFrameBox = document.querySelector("#iframe");
 
   const showIframe = (item) => {
@@ -126,6 +96,8 @@
       showIframe(item);
     });
   });
+
+  // Filter button
 
   for (let i = 0; i < totalFilterBtns; i++) {
     filterBtns[i].addEventListener("click", (e) => {

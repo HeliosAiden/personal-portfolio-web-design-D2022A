@@ -1,4 +1,4 @@
-export const injectElement = (input) => {
+const injectElement = (input) => {
   const {id, path, images = [], style = null} = input
   const element = document.getElementById(`${id}`)
   if (!element) return;
@@ -51,3 +51,5 @@ export const injectElement = (input) => {
     console.log(err);
   }
 };
+
+export default injectElement

@@ -1,5 +1,3 @@
-
-
 const route = (event) => {
   event = event || window.event;
   event.preventDefault();
@@ -18,10 +16,6 @@ const routes = {
 
 const handleLocation = async () => {
   const path = window.location.pathname;
-  const origin = window.location.origin
-  console.log(path)
-  console.log(origin)
-  console.log(routes)
   let route = routes[path] || routes[404];
   console.log(route)
   const html = await fetch(route).then((data) => data.text());
