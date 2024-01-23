@@ -89,7 +89,7 @@ h3 {
 
 /* CSS classes */
 .section .container {
-  padding-top: 3.75rem;
+  padding-top: 4.5rem;
   padding-bottom: 4.75rem;
 }
 .section-title {
@@ -192,7 +192,8 @@ h3 {
 .nav-link:hover {
   color: var(--color-primary);
 }
-.nav-close, .iframe-close {
+.nav-close,
+.iframe-close {
   font-size: 1rem;
   position: absolute;
   top: 1rem;
@@ -809,20 +810,21 @@ h3 {
   .nav-toggle {
     margin-left: 1rem;
   }
-  .nav-close, .nav-toggle {
+  .nav-close,
+  .nav-toggle {
     display: inline-flex;
   }
 }
 
 @media screen and (max-width: 768px) {
-
   .customize-theme .card {
     width: 75vw;
   }
   .container {
     max-width: 568px;
   }
-  .about-content .about-text,.about-content .skills {
+  .about-content .about-text,
+  .about-content .skills {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -844,7 +846,6 @@ h3 {
 }
 
 @media screen and (max-width: 576px) {
-
   .customize-theme .card {
     width: 90vw;
     padding: 1rem;
@@ -858,7 +859,6 @@ h3 {
     max-width: 380px;
     margin: 0 auto;
   }
-
 }
 
 .iframe {
@@ -871,7 +871,7 @@ h3 {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 .iframe iframe {
@@ -889,6 +889,10 @@ h3 {
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
