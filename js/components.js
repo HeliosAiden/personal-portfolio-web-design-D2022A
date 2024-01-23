@@ -1,13 +1,34 @@
 import a from "./injectElements.js";
-// import c from "/constants/components.js";
 
-const rootDir = window.location.pathname
-if (rootDir == '/personal-portfolio-web-design-D2022A/') {
-  await import('./constants/components.js').then(i => {
-    console.log(i)
-  })
-}
+const components = [
+  {
+    id: "home",
+    path: `components/home.html`,
+  },
+  {
+    id: "about",
+    path: `components/about.html`,
+  },
+  {
+    id: "portfolio",
+    path: `components/portfolio.html`,
+  },
+  {
+    id: "reviews",
+    path: `components/reviews.html`,
+  },
+  {
+    id: "footer",
+    path: `components/footer.html`,
+  },
+  {
+    id: "header",
+    path: `components/header.html`,
+  },
+  {
+    id: "style",
+    path: `components/customize.html`,
+  },
+];
 
-import b from "/constants/components.js";
-
-b.map((i) => a(i));
+components.map((i) => a(i));
