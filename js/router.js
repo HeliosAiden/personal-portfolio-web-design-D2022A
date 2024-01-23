@@ -13,7 +13,7 @@ const routes = {
   "/": "/pages/index.html",
   "/about": "/pages/about.html",
   "/contact": "/pages/contact.html",
-  rootRepo: `/${rootRepo}/pages/index.html`
+  [`/${rootRepo}/`]: `/${rootRepo}/pages/index.html`
 };
 
 const handleLocation = async () => {
