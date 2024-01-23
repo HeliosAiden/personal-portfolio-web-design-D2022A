@@ -1,19 +1,27 @@
+
+
 const route = (event) => {
   event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, "", event.target.href);
 };
 
+const rootRepo = 'personal-portfolio-web-design-D2022A'
+
 const routes = {
-  404: "./pages/404.html",
-  "./": "./pages/index.html",
-  "./about": "./pages/about.html",
-  "./contact": "./pages/contact.html",
+  404: "/pages/404.html",
+  "/": "/pages/index.html",
+  "/about": "/pages/about.html",
+  "/contact": "/pages/contact.html",
+  rootRepo: `/${rootRepo}/pages/index.html`
 };
 
 const handleLocation = async () => {
   const path = window.location.pathname;
-  const route = routes[path] || routes[404];
+  const origin = window.location.origin
+  console.log(path)
+  console.log(origin)
+  let route = routes[path] || routes[404];
   const html = await fetch(route).then((data) => data.text());
   const element = document.getElementById("main");
   element.innerHTML = html;
