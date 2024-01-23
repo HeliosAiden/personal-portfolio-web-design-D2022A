@@ -21,7 +21,9 @@ const handleLocation = async () => {
   const origin = window.location.origin
   console.log(path)
   console.log(origin)
+  console.log(routes)
   let route = routes[path] || routes[404];
+  console.log(route)
   const html = await fetch(route).then((data) => data.text());
   const element = document.getElementById("main");
   element.innerHTML = html;
