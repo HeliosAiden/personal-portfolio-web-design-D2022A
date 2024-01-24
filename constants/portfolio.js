@@ -179,6 +179,26 @@ const portfolios = [
         term: 'Buổi 2',
         title: 'Bài 4 buổi 2'
     },
+    {
+        data: '3',
+        iframe: 'posts/lesson_3/excercise_1/index.html',
+        image: {
+            src: 'images/3/1.png',
+            alt: 'lesson_3-excercise_1'
+        },
+        term: 'Buổi 3',
+        title: 'Bài 1 buổi 3'
+    },
+    {
+        data: '3',
+        iframe: 'posts/lesson_3/excercise_2/index.html',
+        image: {
+            src: 'images/3/2.png',
+            alt: 'lesson_3-excercise_2'
+        },
+        term: 'Buổi 3',
+        title: 'Bài 2 buổi 3'
+    },
 ]
 
 export default portfolios

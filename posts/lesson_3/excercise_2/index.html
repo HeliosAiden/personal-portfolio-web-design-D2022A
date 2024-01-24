@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .header {
+        width: 100vw;
+        height: 40px;
+        background-color: rgb(47, 161, 179);
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        z-index: 5;
+      }
+      .main {
+        width: 100vw;
+      }
+      .container {
+        width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex: row;
+      }
+      .button:first-child {
+        background-color: rgb(43, 148, 165);
+      }
+      .button {
+        display: flex;
+        height: 40px;
+        padding: 0 15px;
+        border: 1px solid rgba(245, 245, 245, 0.519);
+        border-style: none none none solid;
+        align-items: center;
+        text-transform: uppercase;
+        color: whitesmoke;
+      }
+      .button:hover {
+        color: white;
+        background-color: rgb(43, 148, 165);
+        cursor: pointer;
+      }
+      .nav-btn {
+        float: right;
+        margin-left: auto;
+        border-style: none solid none solid;
+        background-color: rgb(43, 148, 165);
+      }
+      .horizontal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .chip {
+        display: inline-flex;
+        flex-direction: row;
+        margin-right: 10px;
+        height: 20px;
+        font-size: 14px;
+        align-items: center;
+        border-radius: 20px;
+        padding: 0 8px;
+        color: whitesmoke;
+        border: 1px solid whitesmoke;
+      }
+      .wrapper {
+        margin-left: 15px;
+      }
+      .content {
+        width: 65%;
+        height: 80vh;
+        padding-top: 10px;
+      }
+      .sidebar {
+        width: 35%;
+        height: 80vh;
+        padding-top: 10px;
+      }
+      .section {
+        width: 100%;
+        height: 720px;
+      }
+      .article-box {
+        aspect-ratio: 16/9;
+      }
+      .lg {
+        width: 100%;
+      }
+      .sm {
+        width: 32%;
+        margin-right: 2%;
+        height: 240px;
+      }
+      .sm:last-child {
+        margin-right: 0%;
+      }
+      .box {
+        height: 500px;
+        width: 100%;
+      }
+      .std {
+        aspect-ratio: 16/9;
+      }
+      .img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        transition: transform 0.2s;
+      }
+      .img:hover {
+        transform: scale(1.04);
+        cursor: pointer;
+      }
+      .image-box {
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .hightlight:hover {
+        cursor: pointer;
+        color: #2fa1b3;
+      }
+      .h3 {
+        font-weight: 500;
+      }
+      .article-heading {
+        margin-top: 12px;
+        margin-right: 20px;
+      }
+      .lg-txt {
+        font-size: 32px;
+      }
+      .sm-txt {
+        font-size: 18px;
+      }
+      .news-box {
+        width: 100%;
+        height: 100px;
+        padding-bottom: 5px;
+      }
+      .ns {
+        aspect-ratio: 1 / 1;
+      }
+      .tn {
+        display: block;
+        height: 70px;
+        width: 70px;
+        margin-right: 8px;
+      }
+      .tm {
+        width: 75%;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <nav class="navigation horizontal">
+          <div class="button">nóng</div>
+          <div class="button">mới</div>
+          <div class="button">video</div>
+          <div class="button">chủ đề</div>
+        </nav>
+        <div class="wrapper horizontal">
+          <div class="chip"># Năng lượng tích cực</div>
+          <div class="chip"># Khám phá Việt Nam</div>
+          <div class="chip"># Khám phá thế giới</div>
+        </div>
+        <div class="button nav-btn">☰</div>
+      </div>
+    </div>
+    <main class="main">
+      <div class="container horizontal">
+        <div class="content">
+          <div class="section vertical">
+            <div class="article-box lg hightlight">
+              <div class="image-box">
+                <img
+                  class="std img"
+                  src="https://photo-baomoi.bmcdn.me/w700_r16x9/2023_12_07_294_47743457/f36eb477b23b5b65022a.jpg.webp"
+                  alt="img1"
+                />
+              </div>
+              <h3 class="hightlight h3 article-heading lg-txt">
+                Thủ tướng chủ trì hội nghị tháo gỡ khó khăn về vốn cho nền kinh
+                tế
+              </h3>
+            </div>
+            <div class="box horizontal">
+              <div class="article-box sm hightlight">
+                <div class="image-box">
+                  <img
+                    class="std img"
+                    src="https://photo-baomoi.bmcdn.me/w250_r3x2/2023_12_07_15_47743042/4772e563e32f0a71533e.jpg.webp"
+                    alt="img2"
+                  />
+                </div>
+                <h3 class="hightlight h3 article-heading sm-txt">
+                  Công an TP HCM lên tiếng về việc kiểm tra nồng độ cồn ngày đêm
+                </h3>
+              </div>
+              <div class="article-box sm hightlight">
+                <div class="image-box">
+                  <img
+                    class="std img"
+                    src="https://photo-baomoi.bmcdn.me/w250_r3x2/2023_12_07_83_47742525/8fff76ed70a199ffc0b0.jpg.webp"
+                    alt="img3"
+                  />
+                </div>
+                <h3 class="hightlight h3 article-heading sm-txt">
+                  Thống kê khó tin của Man City: Guardiola cả sự nghiệp chưa
+                  từng bất lực đến thế
+                </h3>
+              </div>
+              <div class="article-box sm hightlight">
+                <div class="image-box">
+                  <img
+                    class="std img"
+                    src="https://photo-baomoi.bmcdn.me/w250_r3x2/2023_12_07_65_47742281/2bde0fd7099be0c5b98a.jpg.webp"
+                    alt="img3"
+                  />
+                </div>
+                <h3 class="hightlight h3 article-heading sm-txt">
+                  Vụ học sinh ném dép vào cô giáo: Đình chỉ chức vụ Hiệu trưởng
+                  Trường THCS Văn Phú
+                </h3>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="sidebar">
+          <div class="section vertical">
+            <div class="sidebar-news wrapper">
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://photo-baomoi.bmcdn.me/w100_r1x1_sm/2023_12_02_114_47701442/5eb12e66252acc74953b.jpg.webp"
+                    alt="pic5"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  Tổng Bí thư Nguyễn Phú Trọng dự phiên họp sáng 20/11, Kỳ họp
+                  thứ 6 Quốc hội khóa XV
+                </p>
+              </div>
+              <hr />
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://photo-baomoi.bmcdn.me/w100_r1x1/2023_12_07_294_47746813/3de47f387874912ac865.jpg.webp"
+                    alt="pic6"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  Giá xăng giảm gần 700 đồng/lít tại phiên giảm lần thứ 4 liên
+                  tiếp
+                </p>
+              </div>
+              <hr />
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://photo-baomoi.bmcdn.me/w250_r3x2/2023_12_07_294_47745986/dacd3e00394cd012895d.jpg.webp"
+                    alt="pic7"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  Thủ tướng: Không hạ chuẩn tín dụng nhưng xử lý linh hoạt phù
+                  hợp tình hình
+                </p>
+              </div>
+              <hr />
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://photo-baomoi.bmcdn.me/w100_r1x1/2023_12_07_17_47746723/c8756ea869e480bad9f5.jpg.webp"
+                    alt="pic8"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  Công nhân bị áp lực vì 'tín dụng đen'
+                </p>
+              </div>
+              <hr />
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://phunuvietnam.mediacdn.vn/thumb_w/700/179072216278405120/2023/12/7/cgn-17019273015941572524846.jpg"
+                    alt="pic9"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  Cô giáo bị học sinh xúc phạm: "Sau sự việc, tôi liên tục mất
+                  ngủ, phải uống thuốc để ổn định tinh thần"
+                </p>
+              </div>
+              <hr />
+              <div class="news-box horizontal hightlight">
+                <div class="image-box tn">
+                  <img
+                    src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/12/5/co-giao-hoc-sinh-612-3-17018190621182070256323.jpg"
+                    alt="pic10"
+                    class="ns img"
+                  />
+                </div>
+                <p class="tm hightlight">
+                  'Liều thuốc' nào uốn những 'chồi măng hư'?
+                </p>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
