@@ -16,6 +16,7 @@
     </div>
   </div>
   <div class="row" id="portfolio-items"></div>
+  <div class="portfolio-pagination"></div>
 </div>
 <script type="module">
   import portfolios from "./constants/portfolio.js";
@@ -63,14 +64,100 @@
 
   // append portfolioItem to portfolioContainer
   const portfolioContainer = document.querySelector("div#portfolio-items");
+  let showCount = 9;
 
-  const prev = () => {}
-  const next = () => {}
-
-  portfolios.map((item) => {
+  portfolios.map((item, index) => {
     const portfolioItem = generatePortfolio(item);
+    portfolioItem.classList.add("hide");
     portfolioContainer.appendChild(portfolioItem);
+    if (index < showCount) {
+      portfolioItem.classList.remove("hide");
+      portfolioItem.classList.add("show");
+    }
   });
+
+  // Generarte Pagination
+  const pagination = document.querySelector("div.portfolio-pagination");
+
+  // PrevBtn
+  const prevBtn = document.createElement("a");
+  prevBtn.innerHTML = "&laquo;";
+  prevBtn.href = "#prev";
+
+  // NextBtn
+  const nextBtn = document.createElement("a");
+  nextBtn.innerHTML = "&raquo;";
+  nextBtn.href = "#next";
+
+  const showPage = (i) => {
+    const targetPage = i.innerHTML;
+    let startCount = targetPage * showCount - showCount;
+    let endCount = targetPage * showCount;
+    const portfolios = [...portfolioContainer.children];
+    portfolios.map((i) => {
+      i.classList.remove("show");
+      i.classList.add("hide");
+    });
+
+    while (startCount < endCount) {
+      portfolios[startCount].classList.add("show");
+      startCount++;
+    }
+  };
+
+  const handleNextBtn = () => {
+    const pageBtns = pagination.querySelectorAll("a[class*=page-]");
+    const currentPosition = Number(pagination.querySelector("a.active").innerHTML);
+    const totalPages = [...pageBtns].length
+
+    let nextPosition = 1
+    if (totalPages !== currentPosition) {
+      nextPosition = currentPosition + 1;
+    }
+
+    const nextBtn = pagination.querySelector(`a.page-${nextPosition}`);
+    [...pageBtns].map(i => i.classList.remove("active"));
+    nextBtn.classList.add("active")
+    showPage(nextBtn)
+
+  }
+
+  const handlePrevBtn = () => {
+    const pageBtns = pagination.querySelectorAll("a[class*=page-]");
+    const currentPosition = Number(pagination.querySelector("a.active").innerHTML);
+    const totalPages = [...pageBtns].length
+
+    let nextPosition = totalPages
+    if (currentPosition > 1) {
+      nextPosition = currentPosition - 1;
+    }
+
+    const nextBtn = pagination.querySelector(`a.page-${nextPosition}`);
+    [...pageBtns].map(i => i.classList.remove("active"));
+    nextBtn.classList.add("active")
+    showPage(nextBtn)
+  }
+
+  pagination.appendChild(prevBtn);
+  const pageCount = Math.ceil(portfolios.length / 9);
+  for (let i = 0; i < pageCount; i++) {
+    const a = document.createElement("a");
+    a.className = `page-${i + 1} pagination-button`;
+    if (i==0) {
+      a.classList.add("active")
+    }
+    a.innerHTML = i + 1;
+    pagination.appendChild(a);
+    a.addEventListener("click", (event) => showPage(event.target));
+  }
+  pagination.appendChild(nextBtn);
+
+  nextBtn.addEventListener("click", handleNextBtn)
+  prevBtn.addEventListener("click", handlePrevBtn)
+
+  //
+
+  // Only show 9 portfolio Item
 
   //Iframe
   const iFrameBox = document.querySelector("#iframe");
