@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura professional responsive template</title>
+    <script
+      src="https://kit.fontawesome.com/533aad8d01.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+      }
+      body {
+        overflow-y: scroll;
+        font-family: "Open Sans", Arial, sans-serif;
+      }
+      header {
+        width: 100%;
+        height: 142px;
+      }
+      .pi-header {
+        width: 100%;
+        height: 46px;
+        background-color: #21252b;
+        position: relative;
+      }
+      .pi-header-container {
+        width: 1060px;
+        height: 46px;
+        margin: 0px 50px;
+        padding: 0px 40px;
+        color: #858d91;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+      }
+      .container-content {
+        width: 195px;
+        height: 28px;
+        margin: 0 10px 9px 0px;
+        padding-top: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .container-content ::before {
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .box-icon {
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        background-color: #0dc0c0;
+        color: #fff;
+        border-radius: 2px;
+        margin: 0 8px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container-content strong {
+        color: #ccccd5;
+        font-weight: 600;
+      }
+      .container-content-1 {
+        width: 205px;
+        height: 28px;
+        margin: 0 10px 9px 0px;
+        padding-top: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .container-content-1 a {
+        color: #0dc0c0;
+        cursor: pointer;
+      }
+      .container-content-1 a:hover {
+        color: #427d9d;
+      }
+      .container-content-2 {
+        width: 70px;
+        height: 28px;
+        margin: 0 10px 9px 0px;
+        padding-top: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 240px;
+      }
+      .container-content-3 {
+        width: 140px;
+        height: 28px;
+        margin: 0 10px 9px 0px;
+        padding-top: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 80px;
+      }
+      .list-icon {
+        list-style-type: none;
+        width: 140px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+      }
+      .icon-twitter {
+        width: 46px;
+        height: 46px;
+        color: #b0bac2;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        border-left: 1px solid #636363;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      .icon-facebook {
+        width: 46px;
+        height: 46px;
+        color: #b0bac2;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        border-left: 1px solid #636363;
+      }
+      .icon-dribble {
+        width: 46px;
+        height: 46px;
+        color: #b0bac2;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        border-right: 1px solid #636363;
+      }
+      .icon-1 {
+        width: 46px;
+        height: 46px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        position: absolute;
+        top: -46px;
+        background-color: #1da1f2;
+        transition: all 0.1s ease-in-out 0s;
+        /* display: none; */
+      }
+      .icon-2 {
+        width: 46px;
+        height: 46px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        position: absolute;
+        top: -46px;
+        background-color: #3b5998;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      .icon-3 {
+        width: 46px;
+        height: 46px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        line-height: 46px;
+        position: absolute;
+        top: -46px;
+        background-color: #ea4c89;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      .icon-twitter:hover {
+        background-color: #1da1f2;
+        color: white;
+      }
+      .icon-facebook:hover {
+        background-color: #3b5998;
+        color: white;
+      }
+      .icon-dribble:hover {
+        background-color: #ea4c89;
+        color: white;
+      }
+
+      .pi-header-down {
+        width: 100%;
+        height: 96px;
+        background-color: #fff;
+        /* position: fixed; */
+      }
+      .down-container {
+        height: 96px;
+        padding: 0 40px;
+        margin: 0 50px;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .img-logo img {
+        width: 95px;
+        height: 96px;
+        cursor: pointer;
+      }
+      .pi-text {
+        width: 120px;
+        height: 28px;
+        color: #666e70;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+      }
+      .list-text {
+        width: 447px;
+        height: 96px;
+        position: absolute;
+        right: 40px;
+      }
+      .list-text-content {
+        list-style-type: none;
+        display: flex;
+        /* align-items: center; */
+        justify-content: space-between;
+        /* line-height: 96px; */
+      }
+      .list-home {
+        width: 78px;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: #0dc0c0;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .list-home p {
+        height: 96px;
+        /* display: flex;
+    align-items: center; */
+        line-height: 99px;
+        border-bottom: 3px solid #0dc0c0;
+        position: relative;
+      }
+      .list-home i {
+        font-size: 10px;
+      }
+      .list-features {
+        width: 95px;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        /* color: #0dc0c0; */
+        position: relative;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .list-features i {
+        font-size: 10px;
+      }
+      .list-features:hover {
+        color: #0dc0c0;
+      }
+      .list-templates {
+        width: 104px;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        /* color: #0dc0c0; */
+        position: relative;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .list-templates i {
+        font-size: 10px;
+      }
+      .list-templates:hover {
+        color: #0dc0c0;
+      }
+      .list-home-text {
+        list-style-type: none;
+        width: 180px;
+        color: #abb3b9;
+        background-color: #21252b;
+        position: absolute;
+        top: 98%;
+        left: 12px;
+        border-top: 3px solid #0dc0c0;
+        display: none;
+      }
+      .text-1 {
+        width: 180px;
+        height: 43px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border-top: 0.5px solid #8e8e8e;
+        border-bottom: 0.5px solid #636363;
+      }
+      .text-1:hover {
+        color: #0dc0c0;
+        background-color: #2a2e34;
+      }
+      .text-1 span {
+        padding-left: 20px;
+      }
+      .list-home:hover .list-home-text {
+        display: block;
+      }
+      .list-home-text-2 {
+        list-style-type: none;
+        width: 180px;
+        color: #abb3b9;
+        background-color: #21252b;
+        position: absolute;
+        top: 98%;
+        left: 12px;
+        border-top: 3px solid #0dc0c0;
+        display: none;
+      }
+      .list-features:hover .list-home-text-2 {
+        display: block;
+      }
+      .list-features:hover .list-home-text-2 {
+        display: block;
+      }
+      .list-home-text-3 {
+        list-style-type: none;
+        width: 180px;
+        color: #abb3b9;
+        background-color: #21252b;
+        position: absolute;
+        top: 98%;
+        right: 10px;
+        border-top: 3px solid #0dc0c0;
+        display: none;
+      }
+      .list-features:hover .list-home-text-3 {
+        display: block;
+      }
+
+      .list-features-text {
+        width: 1040px;
+        /* height: 577px; */
+        position: absolute;
+        top: 98%;
+        right: -185px;
+        background-color: #21252b;
+        border-top: 3px solid #0dc0c0;
+        /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+        display: none;
+      }
+      .list-features-text-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .list-features-box-1 {
+        width: 25%;
+        color: #abb3b9;
+        padding-top: 15px !important;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-right: 1px solid #636363;
+      }
+      .list-home-text-4 {
+        list-style-type: none;
+        width: 229px;
+        height: 557px;
+        color: #abb3b9;
+        background-color: #21252b;
+      }
+      .text-2 {
+        width: 229px;
+        height: 37px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .text-2:hover {
+        color: #0dc0c0;
+        background-color: #2a2e34;
+      }
+      .text-2 span {
+        padding-left: 10px;
+      }
+      .list-templates:hover .list-features-text {
+        display: block;
+      }
+
+      .list-elments-text {
+        width: 1040px;
+        /* height: 577px; */
+        position: absolute;
+        top: 98%;
+        right: -90px;
+        background-color: #21252b;
+        border-top: 3px solid #0dc0c0;
+        /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+        display: none;
+      }
+      .list-templates:hover .list-elments-text {
+        display: block;
+      }
+      .list-home-text-5 {
+        list-style-type: none;
+        width: 229px;
+        /* height: 557px; */
+        color: #abb3b9;
+        background-color: #21252b;
+        /* display: none; */
+      }
+      .img-back {
+        width: 100%;
+      }
+    </style>
+    <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div>
+      <header>
+        <div class="pi-header">
+          <div class="pi-header-container">
+            <div class="container-content">
+              <div class="box-icon">
+                <i class="icon-phone fa-solid fa-phone-flip"></i>
+              </div>
+              <p>Call Us: <strong>+7.906.229.2627</strong></p>
+            </div>
+            <div class="container-content-1">
+              <div class="box-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <p>Email: <a href="#">hello@pitheme.com</a></p>
+            </div>
+            <div class="container-content-3">
+              <ul class="list-icon">
+                <li>
+                  <i class="icon-1 fa-brands fa-twitter"></i>
+                  <i class="icon-twitter fa-brands fa-twitter"></i>
+                </li>
+                <li>
+                  <i class="icon-2 fa-brands fa-facebook-f"></i>
+                  <i class="icon-facebook fa-brands fa-facebook-f"></i>
+                </li>
+                <li>
+                  <i class="icon-3 fa-brands fa-dribbble"></i>
+                  <i class="icon-dribble fa-brands fa-dribbble"></i>
+                </li>
+              </ul>
+            </div>
+            <div class="container-content-2">
+              <p>Follow Us:</p>
+            </div>
+          </div>
+        </div>
+        <div class="pi-header-down">
+          <div class="down-container">
+            <div class="img-logo">
+              <img src="logo-base.png" />
+            </div>
+            <div class="pi-text">HTML5 template</div>
+            <div class="list-text">
+              <ul class="list-text-content">
+                <li class="list-home">
+                  <p>Home</p>
+                  <i class="fa-solid fa-caret-down"></i>
+                  <ul class="list-home-text">
+                    <li class="text-1"><span>Home 1</span></li>
+                    <li class="text-1"><span>Home 2</span></li>
+                    <li class="text-1"><span>Home 3</span></li>
+                    <li class="text-1"><span>Home 4</span></li>
+                    <li class="text-1"><span>Home 5</span></li>
+                    <li class="text-1"><span>Home 6</span></li>
+                    <li class="text-1"><span>Home 7</span></li>
+                    <li class="text-1"><span>Home 8</span></li>
+                    <li class="text-1"><span>Home 9</span></li>
+                    <li class="text-1"><span>Home 10</span></li>
+                    <li class="text-1"><span>Onepage 1</span></li>
+                    <li class="text-1"><span>Onepage 2</span></li>
+                  </ul>
+                </li>
+                <li class="list-features">
+                  <p>Features</p>
+                  <i class="fa-solid fa-caret-down"></i>
+                  <ul class="list-home-text-2">
+                    <li class="text-1"><span>Headers</span></li>
+                    <li class="text-1"><span>Footers</span></li>
+                    <li class="text-1"><span>Utility</span></li>
+                    <li class="text-1"><span>Typography</span></li>
+                    <li class="text-1"><span>Animations</span></li>
+                    <li class="text-1"><span>Icons</span></li>
+                  </ul>
+                </li>
+                <li class="list-templates">
+                  <p>Templates</p>
+                  <i class="fa-solid fa-caret-down"></i>
+                  <div class="list-features-text">
+                    <div class="list-features-text-content">
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-4">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>About Company 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>About Company 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>About Company 3</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>About Company 4</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 3</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 4</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 5</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 6</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 7</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 8</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 9</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Services 10</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-4">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 3</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 4</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 5</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 6</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Clients 7</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 3</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 4</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 5</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 6</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 7</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 8</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-4">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 9</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Classic 10</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Masonry 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Masonry 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Timeline</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Portfolio Single</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Masonry Wide</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Masonry + Sidebar</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Timeline Wide</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Timeline + Sidebar</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Large image</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Medium image</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Small image</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Blog Single Post</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Team 1</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-4">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Team 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Team 3</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Testimonials 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Testimonials 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>FAQ 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>FAQ 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Contact 1</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Contact 2</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Layouts Fixed fluid</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Layouts Fluid fixed</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Layouts Fixed fluid fixed</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Sign In</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Sign Up</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>404</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>500</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-templates">
+                  <p>Elements</p>
+                  <i class="fa-solid fa-caret-down"></i>
+                  <div class="list-elments-text">
+                    <div class="list-features-text-content">
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-5">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Titlebars - Breadcrumb Right</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Titlebars - Breadcrumb Top</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Titlebars - Big Breadcrumb Right</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Titlebars - Big Breadcrumb Top</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Titlebars - Only Breadcrumb</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Icon Boxes Horizontal</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Icon Boxes Vertical</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Lists Simple</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Lists Icons</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-5">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Lists Groups</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Lists Images</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Socials Complex Small</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Socials Complex</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Socials Complex Big</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Socials Simple</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Counters Numbers</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Counters Progress Bars</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Tabs</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-5">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Tabs Big</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Tables</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Accordions</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Alert Boxes</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Boxes</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Buttons</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Forms</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Slider</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Google Maps Roadmap</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="list-features-box-1">
+                        <ul class="list-home-text-5">
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Google Maps Grey style</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Google Maps Dark style</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Google Maps Satellite</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Google Maps Hybrid</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Images</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Pricing Tables</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Sections</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>Simple</span>
+                          </li>
+                          <li class="text-2">
+                            <i class="fa-solid fa-angle-right"></i>
+                            <span>With Photo</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-features">
+                  <p>Docs</p>
+                  <i class="fa-solid fa-caret-down"></i>
+                  <ul class="list-home-text-3">
+                    <li class="text-1"><span>Docs Mao</span></li>
+                    <li class="text-1"><span>Quick Start Guide</span></li>
+                    <li class="text-1"><span>Credits</span></li>
+                    <li class="text-1"><span>Changelog</span></li>
+                    <li class="text-1"><span>Theme Structure</span></li>
+                    <li class="text-1"><span>Theme Settings</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div>
+        <img class="img-back" src="back-8.jpg" />
+      </div>
+    </div>
+  </body>
+</html>

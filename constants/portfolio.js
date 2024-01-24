@@ -1,15 +1,5 @@
 const portfolios = [
     {
-        data: '4',
-        iframe: 'posts/lesson_4/excercise_2/index.html',
-        image: {
-            src: 'images/4/2.png',
-            alt: 'lesson_4-excercise_2'
-        },
-        term: 'Buổi 4',
-        title: 'Bài 2 buổi 4'
-    },
-    {
         data: '6',
         iframe: 'posts/lesson_6/excercise_1/index.html',
         image: {
@@ -198,6 +188,46 @@ const portfolios = [
         },
         term: 'Buổi 3',
         title: 'Bài 2 buổi 3'
+    },
+    {
+        data: '4',
+        iframe: 'posts/lesson_4/excercise_1/index.html',
+        image: {
+            src: 'images/4/1.png',
+            alt: 'lesson_4-excercise_1'
+        },
+        term: 'Buổi 3',
+        title: 'Bài 1 buổi 4'
+    },
+    {
+        data: '4',
+        iframe: 'posts/lesson_4/excercise_2/index.html',
+        image: {
+            src: 'images/4/2.png',
+            alt: 'lesson_4-excercise_2'
+        },
+        term: 'Buổi 4',
+        title: 'Bài 2 buổi 4'
+    },
+    {
+        data: '4',
+        iframe: 'posts/lesson_4/excercise_3/index.html',
+        image: {
+            src: 'images/4/3.png',
+            alt: 'lesson_4-excercise_3'
+        },
+        term: 'Buổi 4',
+        title: 'Bài 3 buổi 4'
+    },
+    {
+        data: '4',
+        iframe: 'posts/lesson_4/excercise_4/index.html',
+        image: {
+            src: 'images/4/4.png',
+            alt: 'lesson_4-excercise_4'
+        },
+        term: 'Buổi 4',
+        title: 'Bài 4 buổi 4'
     },
 ]
 
