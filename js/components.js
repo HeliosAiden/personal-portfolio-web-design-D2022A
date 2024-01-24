@@ -18,6 +18,10 @@ const components = [
     path: `components/reviews.html`,
   },
   {
+    id: "contact",
+    path: `components/contact.html`,
+  },
+  {
     id: "footer",
     path: `components/footer.html`,
   },

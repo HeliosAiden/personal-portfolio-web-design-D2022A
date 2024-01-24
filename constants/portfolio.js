@@ -99,6 +99,86 @@ const portfolios = [
         term: 'Buổi 1',
         title: 'Bài 3 buổi 1'
     },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_1/index.html',
+        image: {
+            src: 'images/2/1.png',
+            alt: 'lesson_2-excercise_1'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 1 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_2/index.html',
+        image: {
+            src: 'images/2/2.png',
+            alt: 'lesson_2-excercise_2.1'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 2.1 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_3/index.html',
+        image: {
+            src: 'images/2/3.png',
+            alt: 'lesson_2-excercise_2.2'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 2.2 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_4/index.html',
+        image: {
+            src: 'images/2/4.png',
+            alt: 'lesson_2-excercise_3.1'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 3.1 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_5/index.html',
+        image: {
+            src: 'images/2/5.png',
+            alt: 'lesson_2-excercise_3.2'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 3.2 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_6/index.html',
+        image: {
+            src: 'images/2/6.png',
+            alt: 'lesson_2-excercise_3.3'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 3.3 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_7/index.html',
+        image: {
+            src: 'images/2/7.png',
+            alt: 'lesson_2-excercise_3.4'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 3.4 buổi 2'
+    },
+    {
+        data: '2',
+        iframe: 'posts/lesson_2/excercise_8/index.html',
+        image: {
+            src: 'images/2/8.png',
+            alt: 'lesson_2-excercise_4'
+        },
+        term: 'Buổi 2',
+        title: 'Bài 4 buổi 2'
+    },
 ]
 
 export default portfolios

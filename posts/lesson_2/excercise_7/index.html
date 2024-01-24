@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 3.4</title>
+    <style>
+      .pic {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+      }
+      ul {
+        display: flex;
+        flex-direction: row;
+        padding-right: 0px;
+      }
+      li {
+        list-style-type: none;
+        padding-right: 20px;
+      }
+      img {
+        opacity: 0.5;
+      }
+      img:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Transparancy</h1>
+    <p>
+      The opacity property is often used together with the :hover selector to
+      change opacity on mouse-over
+    </p>
+    <ul>
+      <li>
+        <img
+          class="opacity pic"
+          src="https://images.pexels.com/photos/18821647/pexels-photo-18821647/free-photo-of-model-with-umbrella-in-the-park-wearing-a-white-sleeveless-a-line-dress.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="pic_01"
+        />
+      </li>
+      <li>
+        <img
+          class="opacity pic"
+          src="https://images.pexels.com/photos/19230280/pexels-photo-19230280/free-photo-of-a-little-girl-in-a-blue-dress-on-a-swing.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="pic_02"
+        />
+      </li>
+      <li>
+        <img
+          class="opacity pic"
+          src="https://images.pexels.com/photos/1245055/pexels-photo-1245055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="pic_02"
+        />
+      </li>
+    </ul>
+  </body>
+</html>

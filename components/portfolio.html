@@ -63,6 +63,10 @@
 
   // append portfolioItem to portfolioContainer
   const portfolioContainer = document.querySelector("div#portfolio-items");
+
+  const prev = () => {}
+  const next = () => {}
+
   portfolios.map((item) => {
     const portfolioItem = generatePortfolio(item);
     portfolioContainer.appendChild(portfolioItem);

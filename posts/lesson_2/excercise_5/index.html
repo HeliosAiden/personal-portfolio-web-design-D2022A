@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 3.2</title>
+    <style>
+      .flex-box {
+        display: flex;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: whitesmoke;
+      }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .green {
+        background-color: green;
+      }
+      .wrapper > li {
+        list-style-type: none;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="wrapper">
+      <li><div class="flex-box red">Red</div></li>
+      <li><div class="flex-box blue">Blue</div></li>
+      <li><div class="flex-box green">Green</div></li>
+    </ul>
+  </body>
+</html>
