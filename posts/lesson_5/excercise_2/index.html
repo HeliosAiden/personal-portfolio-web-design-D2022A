@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input" type="number" />
+    <div id="result"></div>
+    <script>
+      const input = document.getElementById("input");
+      const getValue = (e) => {
+        if (e.key == "Enter") {
+          const elem = e.target;
+          const value = elem.value;
+          const result = value % 2;
+          if (value) {
+            if (result == 0) text = `Số ${value} là số chẵn `;
+            if (result == 1) text = `Số ${value} là số lẻ `;
+          } else {
+            text = 'Số đã nhập không hợp lệ'
+          }
+          document.getElementById("result").innerText = text;
+        }
+      };
+      input.addEventListener("keydown", (e) => getValue(e));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 3</title>
+  </head>
+  <body>
+    <h2>Guess what ?!</h2>
+    <p>Hãy đoán xem số sau là số gì ?</p>
+    <p>
+      Số cần tìm nằm trong khoảng 1 -> 10
+      <b
+        ><i><span id="prompt"></span></i
+      ></b>
+    </p>
+    <input type="number" id="input" />
+    <div class="result" id="result"></div>
+    <script>
+      const input = document.getElementById("input");
+      const result = document.getElementById("result");
+      const random = Math.floor(Math.random() * 11);
+
+      const getPrompt = (e) => {
+        switch (e) {
+          case 1:
+            return "4 % 3";
+          case 2:
+            return "18 / 9";
+          case 3:
+            return "21 / 7";
+          case 4:
+            return "100 / 25";
+          case 5:
+            return "20 / 4";
+          case 6:
+            return "18 / 3";
+          case 7:
+            return "84 / 12";
+          case 8:
+            return "2 * 2 * 2";
+          case 9:
+            return "3 * 3";
+          case 10:
+            return "5 * 4 / 2";
+        }
+      };
+
+      const guess = (e) => {
+        if (e.key == "Enter") {
+          const value = e.target.value;
+          let text = "";
+          if (value >= 1 && value <= 10) {
+            if (random == value) {
+              alert(`Bạn đã đoán trúng số ${value}`);
+              input.style.display = "none";
+              result.innerText = "";
+            } else {
+              document.getElementById("prompt").innerHTML = `Gợi ý: ${getPrompt(
+                random
+              )}`;
+              text = `Bạn đã đoán số sai, vui lòng nhập lại`;
+              e.target.value = "";
+            }
+          } else {
+            document.getElementById("prompt").innerHTML = `Gợi ý: ${getPrompt(
+              random
+            )}`;
+            text = `Số ${value} là số không hợp lệ`;
+          }
+          if (text) result.innerText = text;
+        }
+      };
+
+      input.addEventListener("keydown", (e) => guess(e));
+    </script>
+  </body>
+</html>
