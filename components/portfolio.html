@@ -65,7 +65,7 @@
   // append portfolioItem to portfolioContainer
   const portfolioContainer = document.querySelector("div#portfolio-items");
   // Define how many pages allowed to show
-  let showCount = 9;
+  let showCount = 6;
 
   portfolios.map((item, index) => {
     const portfolioItem = generatePortfolio(item);
@@ -82,12 +82,12 @@
 
   // PrevBtn
   const prevBtn = document.createElement("a");
-  prevBtn.innerHTML = "&laquo;";
+  prevBtn.innerHTML = "&#10096;";
   prevBtn.id = "prev";
 
   // NextBtn
   const nextBtn = document.createElement("a");
-  nextBtn.innerHTML = "&raquo;";
+  nextBtn.innerHTML = "&#10097;";
   nextBtn.id = "next";
 
   const filterContainer = document.querySelector(".portfolio-inner"),
@@ -123,8 +123,11 @@
     }
 
     while (startCount < endCount) {
-      [...filterPortfolios][startCount].classList.remove("hide");
-      [...filterPortfolios][startCount].classList.add("show");
+      const targetPortfolio = [...filterPortfolios][startCount];
+      if (targetPortfolio) {
+        targetPortfolio.classList.remove("hide");
+        targetPortfolio.classList.add("show");
+      }
       startCount++;
     }
   };
@@ -169,7 +172,7 @@
 
   // Generate pagination button accordingly
 
-  const generatePageBtn = (filterValue) => {
+  const generatePageBtn = (filterValue, showCount) => {
     const activePortfolios = [
       ...portfolioContainer.querySelectorAll("div[class*=show]"),
     ];
@@ -209,7 +212,7 @@
     }
     pagination.appendChild(nextBtn);
   };
-  generatePageBtn("all");
+  generatePageBtn("all", showCount);
 
   nextBtn.addEventListener("click", handleNextBtn);
   prevBtn.addEventListener("click", handlePrevBtn);
@@ -237,16 +240,9 @@
     });
   });
 
-  // Filter button
-
-  for (let i = 0; i < totalFilterBtns; i++) {
-    filterBtns[i].addEventListener("click", (e) => {
-      document.querySelector(".active").classList.remove("active");
-      e.target.classList.add("active");
-
-      const filterValue = e.target.getAttribute("data-filter");
-      let maxCount = 0;
-      for (let k = 0; k < totalPortfolioItem; k++) {
+  const filterPortfolios = (filterValue, showCount) => {
+    let maxCount = 0;
+    for (let k = 0; k < totalPortfolioItem; k++) {
         if (filterValue === portfolioItems[k].getAttribute("data-category")) {
           if (maxCount < showCount) {
             portfolioItems[k].classList.remove("hide");
@@ -264,7 +260,20 @@
           }
         }
       }
-      generatePageBtn(filterValue);
+  }
+
+  // Filter button
+
+  for (let i = 0; i < totalFilterBtns; i++) {
+    filterBtns[i].addEventListener("click", (e) => {
+      document.querySelector(".active").classList.remove("active");
+      e.target.classList.add("active");
+
+      const filterValue = e.target.getAttribute("data-filter");
+      // call this function
+      filterPortfolios(filterValue, showCount)
+
+      generatePageBtn(filterValue, showCount);
     });
   }
 </script>
