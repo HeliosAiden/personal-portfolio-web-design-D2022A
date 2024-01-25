@@ -64,6 +64,7 @@
 
   // append portfolioItem to portfolioContainer
   const portfolioContainer = document.querySelector("div#portfolio-items");
+  // Define how many pages allowed to show
   let showCount = 9;
 
   portfolios.map((item, index) => {
@@ -76,88 +77,142 @@
     }
   });
 
-  // Generarte Pagination
+  // Generate Pagination
   const pagination = document.querySelector("div.portfolio-pagination");
 
   // PrevBtn
   const prevBtn = document.createElement("a");
   prevBtn.innerHTML = "&laquo;";
-  prevBtn.href = "#prev";
+  prevBtn.id = "prev";
 
   // NextBtn
   const nextBtn = document.createElement("a");
   nextBtn.innerHTML = "&raquo;";
-  nextBtn.href = "#next";
+  nextBtn.id = "next";
 
-  const showPage = (i) => {
-    const targetPage = i.innerHTML;
+  const filterContainer = document.querySelector(".portfolio-inner"),
+    filterBtns = filterContainer.children,
+    totalFilterBtns = filterBtns.length,
+    portfolioItems = document.querySelectorAll(".portfolio-item"),
+    totalPortfolioItem = portfolioItems.length;
+
+  // Define which portfolio to show and which to hide
+
+  const showPortfolios = (target) => {
+    const targetPage = target.innerHTML;
     let startCount = targetPage * showCount - showCount;
     let endCount = targetPage * showCount;
-    const portfolios = [...portfolioContainer.children];
-    portfolios.map((i) => {
+    const activePortfolios = [
+      ...portfolioContainer.querySelectorAll("div[class*=show]"),
+    ];
+    activePortfolios.map((i) => {
       i.classList.remove("show");
       i.classList.add("hide");
     });
 
+    const filterValue = filterContainer
+      .querySelector(".active")
+      .getAttribute("data-filter");
+    let filterPortfolios;
+    if (filterValue !== "all") {
+      filterPortfolios = portfolioContainer.querySelectorAll(
+        `[data-category="${filterValue}"]`
+      );
+    } else {
+      filterPortfolios = portfolioContainer.children;
+    }
+
     while (startCount < endCount) {
-      portfolios[startCount].classList.add("show");
+      [...filterPortfolios][startCount].classList.remove("hide");
+      [...filterPortfolios][startCount].classList.add("show");
       startCount++;
     }
   };
 
   const handleNextBtn = () => {
     const pageBtns = pagination.querySelectorAll("a[class*=page-]");
-    const currentPosition = Number(pagination.querySelector("a.active").innerHTML);
-    const totalPages = [...pageBtns].length
+    const currentPosition = Number(
+      pagination.querySelector("a.active").innerHTML
+    );
+    const totalPages = [...pageBtns].length;
 
-    let nextPosition = 1
+    let nextPosition = 1;
     if (totalPages !== currentPosition) {
       nextPosition = currentPosition + 1;
     }
 
-    const nextBtn = pagination.querySelector(`a.page-${nextPosition}`);
-    [...pageBtns].map(i => i.classList.remove("active"));
-    nextBtn.classList.add("active")
-    showPage(nextBtn)
-
-  }
+    const targetBtn = pagination.querySelector(`a.page-${nextPosition}`);
+    [...pageBtns].map((i) => i.classList.remove("active"));
+    targetBtn.classList.add("active");
+    showPortfolios(targetBtn);
+  };
 
   const handlePrevBtn = () => {
     const pageBtns = pagination.querySelectorAll("a[class*=page-]");
-    const currentPosition = Number(pagination.querySelector("a.active").innerHTML);
-    const totalPages = [...pageBtns].length
+    const currentPosition = Number(
+      pagination.querySelector("a.active").innerHTML
+    );
+    const totalPages = [...pageBtns].length;
 
-    let nextPosition = totalPages
+    let nextPosition = totalPages;
     if (currentPosition > 1) {
       nextPosition = currentPosition - 1;
     }
 
-    const nextBtn = pagination.querySelector(`a.page-${nextPosition}`);
-    [...pageBtns].map(i => i.classList.remove("active"));
-    nextBtn.classList.add("active")
-    showPage(nextBtn)
-  }
+    const targetBtn = pagination.querySelector(`a.page-${nextPosition}`);
+    [...pageBtns].map((i) => i.classList.remove("active"));
+    targetBtn.classList.add("active");
+    showPortfolios(targetBtn);
+  };
 
   pagination.appendChild(prevBtn);
-  const pageCount = Math.ceil(portfolios.length / 9);
-  for (let i = 0; i < pageCount; i++) {
-    const a = document.createElement("a");
-    a.className = `page-${i + 1} pagination-button`;
-    if (i==0) {
-      a.classList.add("active")
+
+  // Generate pagination button accordingly
+
+  const generatePageBtn = (filterValue) => {
+    const activePortfolios = [
+      ...portfolioContainer.querySelectorAll("div[class*=show]"),
+    ];
+    let filterPortfolios;
+    if (filterValue == "all") {
+      filterPortfolios = portfolioContainer.children;
+    } else {
+      filterPortfolios = portfolioContainer.querySelectorAll(
+        `div[data-category="${filterValue}"]`
+      );
     }
-    a.innerHTML = i + 1;
-    pagination.appendChild(a);
-    a.addEventListener("click", (event) => showPage(event.target));
-  }
-  pagination.appendChild(nextBtn);
+    const pageCount = Math.ceil([...filterPortfolios].length / showCount);
+    [...pagination.querySelectorAll("a[class*=page-]")].map((i) =>
+      pagination.removeChild(i)
+    );
+    const currentNextBtn = document.getElementById("next");
+    if (currentNextBtn) {
+      pagination.removeChild(nextBtn);
+    }
 
-  nextBtn.addEventListener("click", handleNextBtn)
-  prevBtn.addEventListener("click", handlePrevBtn)
+    for (let i = 0; i < pageCount; i++) {
+      const a = document.createElement("a");
+      a.className = `page-${i + 1} pagination-button`;
+      if (i == 0) {
+        a.classList.add("active");
+      }
+      a.innerHTML = i + 1;
+      pagination.appendChild(a);
+      a.addEventListener("click", (event) => {
+        const targetBtn = event.target;
+        [...pagination.querySelectorAll("a[class*=page-]")].map((i) =>
+          i.classList.remove("active")
+        );
+        targetBtn.classList.add("active");
+        showPortfolios(targetBtn);
+      });
+    }
+    pagination.appendChild(nextBtn);
+  };
+  generatePageBtn("all");
 
-  //
-
-  // Only show 9 portfolio Item
+  nextBtn.addEventListener("click", handleNextBtn);
+  prevBtn.addEventListener("click", handlePrevBtn);
 
   //Iframe
   const iFrameBox = document.querySelector("#iframe");
@@ -175,12 +230,6 @@
 
   iFrameBox.addEventListener("click", closeIframe);
 
-  const filterContainer = document.querySelector(".portfolio-inner"),
-    filterBtns = filterContainer.children,
-    totalFilterBtns = filterBtns.length,
-    portfolioItems = document.querySelectorAll(".portfolio-item"),
-    totalPortfolioItem = portfolioItems.length;
-
   [...portfolioItems].map((item) => {
     const mask = item.querySelector(".mask");
     mask.addEventListener("click", (e) => {
@@ -196,19 +245,26 @@
       e.target.classList.add("active");
 
       const filterValue = e.target.getAttribute("data-filter");
+      let maxCount = 0;
       for (let k = 0; k < totalPortfolioItem; k++) {
         if (filterValue === portfolioItems[k].getAttribute("data-category")) {
-          portfolioItems[k].classList.remove("hide");
-          portfolioItems[k].classList.add("show");
+          if (maxCount < showCount) {
+            portfolioItems[k].classList.remove("hide");
+            portfolioItems[k].classList.add("show");
+            maxCount++;
+          }
         } else {
           portfolioItems[k].classList.add("hide");
           portfolioItems[k].classList.remove("show");
         }
         if (filterValue === "all") {
-          portfolioItems[k].classList.remove("hide");
-          portfolioItems[k].classList.add("show");
+          if (k < showCount) {
+            portfolioItems[k].classList.remove("hide");
+            portfolioItems[k].classList.add("show");
+          }
         }
       }
+      generatePageBtn(filterValue);
     });
   }
 </script>

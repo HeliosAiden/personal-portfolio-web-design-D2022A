@@ -71,6 +71,36 @@ const portfolios = [
   },
   {
     data: "2",
+    iframe: "posts/lesson_2/excercise_1/index.html",
+    image: {
+      src: "images/2/1.png",
+      alt: "lesson_2-excercise_1",
+    },
+    term: "Buổi 2",
+    title: "Bài 1 buổi 2",
+  },
+  {
+    data: "2",
+    iframe: "posts/lesson_2/excercise_1/index.html",
+    image: {
+      src: "images/2/1.png",
+      alt: "lesson_2-excercise_1",
+    },
+    term: "Buổi 2",
+    title: "Bài 1 buổi 2",
+  },
+  {
+    data: "2",
+    iframe: "posts/lesson_2/excercise_1/index.html",
+    image: {
+      src: "images/2/1.png",
+      alt: "lesson_2-excercise_1",
+    },
+    term: "Buổi 2",
+    title: "Bài 1 buổi 2",
+  },
+  {
+    data: "2",
     iframe: "posts/lesson_2/excercise_2/index.html",
     image: {
       src: "images/2/2.png",
