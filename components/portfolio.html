@@ -268,11 +268,8 @@
     filterBtns[i].addEventListener("click", (e) => {
       document.querySelector(".active").classList.remove("active");
       e.target.classList.add("active");
-
       const filterValue = e.target.getAttribute("data-filter");
-      // call this function
       filterPortfolios(filterValue, showCount)
-
       generatePageBtn(filterValue, showCount);
     });
   }

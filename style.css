@@ -545,7 +545,7 @@ h3 {
   padding: 8px 16px;
   text-decoration: none;
   font-weight: 700;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .portfolio-pagination a:hover {
@@ -617,6 +617,90 @@ h3 {
   width: 1.6rem;
   height: 0.5rem;
   border-radius: 0.8rem;
+}
+
+/* Contact */
+.contact-box {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.contact-form {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+.contact-data {
+  display: grid;
+  row-gap: 2rem;
+}
+.contact-subtitle {
+  margin-bottom: var(--m-0-5);
+}
+.contact-decscription {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+.contact-icon {
+  font-size: 1.75rem;
+}
+.contact-inputs {
+  display: grid;
+  row-gap: 2rem;
+  margin-bottom: var(--m-2-5);
+}
+.contact-content {
+  position: relative;
+  height: 3rem;
+  border-bottom: 2px solid var(--color-gray);
+  margin-bottom: var(--m-1-5);
+}
+.contact-content span {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  content: "";
+  height: 2px;
+  width: 0;
+  background-color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.contact-input:focus ~ span {
+  width: 100%;
+}
+
+.contact-input {
+  position: absolute;
+  color: var(--color-dark);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 1rem 1rem 0;
+  background: none;
+  outline: none;
+  border: none;
+  z-index: 1;
+}
+
+.contact-label {
+  position: absolute;
+  top: 0.4rem;
+  width: 100%;
+  font-size: var(--small-font-size);
+  transition: 0.3s;
+}
+.contact-area {
+  height: 7rem;
+}
+.contact-area textarea {
+  resize: none;
+}
+.contact-input:focus + .contact-label {
+  top: -0.75rem;
+  left: 0;
+  z-index: 10;
+  color: var(--color-primary);
 }
 
 /* Footer */
@@ -844,6 +928,26 @@ h3 {
   .nav-toggle {
     display: inline-flex;
   }
+  .contact-box {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact-form {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact-data {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--m-2-5);
+  }
+  .contact-information {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .contact-form .btn {
+    margin-left: 35%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -872,6 +976,10 @@ h3 {
     flex: 0 0 50%;
     max-width: 50%;
     margin-bottom: var(--m-1-5);
+  }
+  .contact-information {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
