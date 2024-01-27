@@ -259,6 +259,26 @@ const portfolios = [
     term: "Buổi 6",
     title: "Bài 3 buổi 6",
   },
+  {
+    data: "7",
+    iframe: "posts/lesson_7/excercise_1/index.html",
+    image: {
+      src: "images/7/1.png",
+      alt: "lesson_7-excercise_1",
+    },
+    term: "Buổi 7",
+    title: "Bài 1 buổi 7",
+  },
+  {
+    data: "7",
+    iframe: "posts/lesson_7/excercise_2/index.html",
+    image: {
+      src: "images/7/1.png",
+      alt: "lesson_7-excercise_2",
+    },
+    term: "Buổi 7",
+    title: "Bài 2 buổi 7",
+  },
 ];
 
 export default portfolios;
