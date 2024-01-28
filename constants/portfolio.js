@@ -273,7 +273,7 @@ const portfolios = [
     data: "7",
     iframe: "posts/lesson_7/excercise_2/index.html",
     image: {
-      src: "images/7/1.png",
+      src: "images/7/2.png",
       alt: "lesson_7-excercise_2",
     },
     term: "Buổi 7",

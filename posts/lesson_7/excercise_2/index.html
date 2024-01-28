@@ -82,6 +82,10 @@
         background-color: var(--body-color);
         border-bottom: 1px solid var(--text-color);
         z-index: var(--z-fixed);
+        transition: top 0.4s;
+      }
+      .header.scroll {
+        top: -100px;
       }
       .nav {
         height: var(--header-height);
@@ -538,6 +542,19 @@
         navMenu.classList.remove("show-menu");
       };
       navLinks.forEach((n) => n.addEventListener("click", linkAction));
+      // ========== SCROLL TO HIDE HEADER ========== //
+      const header = document.getElementById("header");
+      const hideHeader = () => {
+        header.classList.remove("scroll");
+      };
+      const showHeader = () => {
+        if (!header.classList.contains("scroll")) {
+          header.classList.add("scroll");
+        }
+      };
+
+      window.onscroll = showHeader;
+      window.onscrollend = hideHeader;
       // ========== SWIPER ========== //
       const swiperWatches = new Swiper(".home-swiper", {
         loop: true,
