@@ -881,6 +881,27 @@ h3 {
   border: 2px solid var(--color-primary);
 }
 
+/* Snackbar */
+#snackbar {
+  min-width: 250px;
+  background-color: var(--color-primary);
+  color: hsl(252, 30%, 92%);
+  text-align: center;
+  border-radius: 2px;
+  padding: 12px 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+  border-radius: var(--border-radius);
+  transition: bottom .4s;
+}
+
+#snackbar.show {
+  bottom: 30px;
+}
+
 @media only screen and (max-width: 1200px) {
   .customize-theme .card {
     width: 50vw;

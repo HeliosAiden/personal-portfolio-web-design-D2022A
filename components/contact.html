@@ -95,6 +95,9 @@
 <script>
   const contactInputs = document.querySelectorAll(".contact-input");
   const form = document.querySelector(".contact-form");
+  const snackBar = document.getElementById("snackbar");
+
+
   const handleValues = (e) => {
     const target = e.target;
     if (target.value) {
@@ -116,7 +119,6 @@
     target.value = ''
     target.classList.add("value");
     target.placeholder = invalidMsg;
-
   }
 
   function ValidateEmail(value, target) {
@@ -147,26 +149,41 @@
       const emptyWarning = `*${key} không được để trống`;
       targetInput.classList.add("value");
       targetInput.placeholder = emptyWarning;
+      return false
     }
     if (value) {
       // validate email and phone number
       if (key == "email") {
-        ValidateEmail(value, targetInput);
+        return ValidateEmail(value, targetInput);
       }
       if (key == "tel") {
-        ValidateTel(value, targetInput);
+        return ValidateTel(value, targetInput);
       }
+      return true
     }
   };
+
+  const hideSnackbar = () => {
+    snackBar.classList.remove("show")
+  }
 
   const validateForm = (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const formProps = Object.fromEntries(formData);
+    const validations = []
     for (var data of formData.entries()) {
-      // data[0] = KEY & data[1] = VALUE
-      validateData(data[0], data[1]);
+      const isValid = validateData(data[0], data[1]);
+      validations.push(isValid)
     }
+    if (validations.includes(false)) {
+      return false
+    }
+    const successMsg = "Form đã được gửi"
+    snackBar.innerText = successMsg;
+    snackBar.classList.add("show");
+    setTimeout(hideSnackbar, 6000);
+    // if pass all validation then sent success message
   };
   const submitBtn = document.querySelector(".contact-form a");
   submitBtn.addEventListener("click", (event) => validateForm(event));
