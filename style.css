@@ -683,6 +683,12 @@ h3 {
   z-index: 1;
 }
 
+.contact-input::placeholder {
+  color: var(--color-primary);
+  opacity: 0.65;
+}
+
+
 .contact-label {
   position: absolute;
   top: 0.4rem;
@@ -696,7 +702,7 @@ h3 {
 .contact-area textarea {
   resize: none;
 }
-.contact-input:focus + .contact-label {
+.contact-input:focus + .contact-label, .contact-input.value + .contact-label {
   top: -0.75rem;
   left: 0;
   z-index: 10;
@@ -946,7 +952,7 @@ h3 {
     max-width: 50%;
   }
   .contact-form .btn {
-    margin-left: 32%;
+    margin-left: calc(50% - 42px);
   }
 }
 

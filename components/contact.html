@@ -24,28 +24,129 @@
       </div>
     </div>
     <!-- Contact form -->
-    <form action="" class="contact-form padd-15">
+    <form action="" method="post" class="contact-form padd-15">
       <div class="contact-inputs">
         <!-- Contact content -->
         <div class="contact-content">
-            <input type="email" class="contact-input">
-            <label for="" class="contact-label">Email</label>
-            <span></span>
+          <input
+            type="email"
+            name="email"
+            class="contact-input"
+            placeholder=""
+          />
+          <label for="" class="contact-label">Email</label>
+          <span></span>
         </div>
         <!-- Contact content -->
         <div class="contact-content">
-            <input type="text" class="contact-input">
-            <label for="" class="contact-label">Subject</label>
-            <span></span>
+          <input
+            type="tel"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            name="tel"
+            class="contact-input"
+          />
+          <label for="" class="contact-label">Số điện thoại</label>
+          <span></span>
+        </div>
+        <!-- Contact content -->
+        <div class="contact-content">
+          <input type="text" name="subject" class="contact-input" />
+          <label for="" class="contact-label">Chủ đề</label>
+          <span></span>
         </div>
         <!-- Contact content -->
         <div class="contact-content contact-area">
-            <textarea name="" id="" cols="30" rows="10" class="contact-input"></textarea>
-            <label for="" class="contact-label">Message</label>
-            <span></span>
+          <textarea
+            name="message"
+            id=""
+            cols="30"
+            rows="10"
+            class="contact-input"
+          ></textarea>
+          <label for="" class="contact-label">Lời nhắn</label>
+          <span></span>
         </div>
       </div>
-      <a href="#" class="btn btn-default">Send Message</a>
+      <a href="#" class="btn btn-default">Gửi</a>
     </form>
   </div>
 </div>
+<script>
+  const contactInputs = document.querySelectorAll(".contact-input");
+  const form = document.querySelector(".contact-form");
+  const handleValues = (e) => {
+    const target = e.target;
+    if (target.value) {
+      target.classList.add("value");
+    }
+    if (
+      !target.value &&
+      target.classList.contains("value") &&
+      target.placeholder == ""
+    ) {
+      target.classList.remove("value");
+    }
+  };
+  [...contactInputs].map((i) =>
+    i.addEventListener("focusout", (event) => handleValues(event))
+  );
+
+  const handleInvalid = (target, invalidMsg) => {
+    target.value = ''
+    target.classList.add("value");
+    target.placeholder = invalidMsg;
+
+  }
+
+  function ValidateEmail(value, target) {
+    const mailFormat =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (value.match(mailFormat)) {
+      return true;
+    }
+    const invalidMsg = `Email: ${value} không hợp lệ, vui lòng nhập lại`
+    handleInvalid(target, invalidMsg)
+    return false;
+  }
+
+  function ValidateTel(value, target) {
+    const telFormat =
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    if (value.match(telFormat)) {
+      return true;
+    }
+    const invalidMsg = `Số điện thoại: ${value} không hợp lệ, vui lòng nhập lại`;
+    handleInvalid(target, invalidMsg)
+    return false;
+  }
+
+  const validateData = (key, value) => {
+    const targetInput = document.querySelector(`.contact-input[name=${key}]`);
+    if (!value) {
+      const emptyWarning = `*${key} không được để trống`;
+      targetInput.classList.add("value");
+      targetInput.placeholder = emptyWarning;
+    }
+    if (value) {
+      // validate email and phone number
+      if (key == "email") {
+        ValidateEmail(value, targetInput);
+      }
+      if (key == "tel") {
+        ValidateTel(value, targetInput);
+      }
+    }
+  };
+
+  const validateForm = (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const formProps = Object.fromEntries(formData);
+    for (var data of formData.entries()) {
+      // data[0] = KEY & data[1] = VALUE
+      validateData(data[0], data[1]);
+    }
+  };
+  const submitBtn = document.querySelector(".contact-form a");
+  submitBtn.addEventListener("click", (event) => validateForm(event));
+</script>
