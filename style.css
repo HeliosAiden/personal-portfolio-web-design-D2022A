@@ -1,5 +1,6 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
 /* Global Variables */
 :root {
   --header-height: 3.5rem;
@@ -105,6 +106,44 @@ h3 {
   display: flex;
   flex-wrap: wrap;
 }
+
+.row.expand {
+  flex-direction: column-reverse;
+  transition: flex 1s;
+}
+
+.rounded .row.expand > div {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: var(--m-1-5);
+}
+
+.facts.expand {
+  width: 25%;
+}
+
+.row.expand .fact-item {
+  flex: none;
+  max-width: 100%;
+}
+
+.about-text.expand {
+  display: none;
+}
+
+#more:hover {
+  cursor: pointer;
+}
+
+.expand-wrapper {
+  display: none;
+  width: 75%;
+}
+
+.expand-wrapper.expand {
+  display: block;
+}
+
 
 /* Layout */
 
@@ -332,6 +371,9 @@ h3 {
   flex: 0 0 50%;
   max-width: 50%;
 }
+.facts {
+  width: 100%;
+}
 .rounded {
   background-color: var(--color-white);
   padding: var(--card-padding);
@@ -341,6 +383,7 @@ h3 {
   text-align: justify;
   margin-bottom: var(--m-1);
 }
+
 .about-content .skills .skill-item {
   flex: 0 0 100%;
   max-width: 100%;
@@ -375,6 +418,10 @@ h3 {
   max-width: 25%;
   margin-top: var(--m-2-5);
   text-align: center;
+}
+.fact-item.expand {
+  flex: none;
+  max-width: 100%;
 }
 .fact-item p {
   font-size: var(--h3-font-size);

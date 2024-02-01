@@ -97,7 +97,6 @@
   const form = document.querySelector(".contact-form");
   const snackBar = document.getElementById("snackbar");
 
-
   const handleValues = (e) => {
     const target = e.target;
     if (target.value) {
@@ -173,17 +172,18 @@
     const formProps = Object.fromEntries(formData);
     const validations = []
     for (var data of formData.entries()) {
+      // validate all entries from formData
       const isValid = validateData(data[0], data[1]);
       validations.push(isValid)
     }
     if (validations.includes(false)) {
       return false
     }
+    // if pass all validation then sent success message
     const successMsg = "Form đã được gửi"
     snackBar.innerText = successMsg;
     snackBar.classList.add("show");
     setTimeout(hideSnackbar, 6000);
-    // if pass all validation then sent success message
   };
   const submitBtn = document.querySelector(".contact-form a");
   submitBtn.addEventListener("click", (event) => validateForm(event));

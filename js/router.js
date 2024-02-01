@@ -10,8 +10,6 @@ const routes = {
   404: "/pages/404.html",
   "/": "/pages/index.html",
   "/index.html": "/pages/index.html",
-  "/about": "/pages/about.html",
-  "/contact": "/pages/contact.html",
   [`/${rootRepo}/`]: `/${rootRepo}/pages/index.html`
 };
 

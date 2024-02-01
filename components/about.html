@@ -1,10 +1,11 @@
 <div class="container">
   <h2 class="section-title padd-15">Giới thiệu</h2>
-  <div class="row">
+  <div id="short" class="row">
     <div class="about-img padd-15">
       <!-- Avatar IMG-->
       <img src="images/avatar2.jpg" alt="" />
     </div>
+    <!-- Main Content -->
     <div class="about-content padd-15">
       <div class="rounded">
         <div class="row">
@@ -13,17 +14,23 @@
               Mình là một lập trình viên với gần 2 năm đam mê code web. Mình chủ
               yếu tận dụng React framework để xây dựng các trang web hiệu quả và
               linh hoạt. Ngoài ra, mình cũng có kiến thức vững về Python và sử
-              dụng Django Rest Framework để xây dựng các RESTful API.
+              dụng Django Rest Framework để xây dựng các RESTful API...
             </p>
             <div>
-              <a href="#" class="btn btn-default">Đọc thêm...</a>
+              <a id="more" class="btn btn-default">Đọc thêm...</a>
             </div>
           </div>
           <div class="skills padd-15">
-            <div class="row">
+            <div class="row progress">
               <!-- skill item-->
               <div class="skill-item">
-                <h4><i class="lni lni-python" style="color: rgb(108, 108, 229)";" ></i>  Python</h4>
+                <h4>
+                  <i
+                    class="lni lni-python"
+                    style="color: rgb(108, 108, 229)"
+                  ></i>
+                  Python
+                </h4>
                 <div class="progress">
                   <div
                     class="progress-in"
@@ -34,7 +41,13 @@
               </div>
               <!-- skill item-->
               <div class="skill-item">
-                <h4><i class="lni lni-javascript" style="color: rgb(255, 255, 92);" ></i>  Javascript</h4>
+                <h4>
+                  <i
+                    class="lni lni-javascript"
+                    style="color: rgb(255, 255, 92)"
+                  ></i>
+                  Javascript
+                </h4>
                 <div class="progress">
                   <div
                     class="progress-in"
@@ -45,7 +58,10 @@
               </div>
               <!-- skill item-->
               <div class="skill-item">
-                <h4><i class="lni lni-java" style="color: rgb(255, 76, 96);" ></i> Java</h4>
+                <h4>
+                  <i class="lni lni-java" style="color: rgb(255, 76, 96)"></i>
+                  Java
+                </h4>
                 <div class="progress">
                   <div
                     class="progress-in"
@@ -59,7 +75,8 @@
         </div>
       </div>
     </div>
-    <div class="row" style="width: 100%">
+    <!-- Facts -->
+    <div class="row facts">
       <!-- fact item -->
       <div class="fact-item padd-15">
         <i class="lni lni-code"></i>
@@ -93,5 +110,36 @@
         </div>
       </div>
     </div>
+    <div class="row expand-wrapper padd-15">
+      <div class="rounded"></div>
+      <div class="rounded"></div>
+      <div class="rounded"></div>
+    </div>
   </div>
 </div>
+<script type="module">
+  const aboutText = document.querySelector(".about-text");
+  const aboutRow = document.querySelector(".rounded .row");
+  const factWrapper = document.querySelector(".facts.row")
+  const progressWrapper = document.querySelector(".skills")
+  const expandWrapper = document.querySelector(".expand-wrapper")
+  const Button = document.getElementById("more")
+  const expandClass = "expand"
+
+  const moreBtn = document.getElementById("more");
+
+  const removeExpand = () => {};
+
+  const addExpand = () => {
+    factWrapper.classList.add(expandClass)
+    aboutRow.classList.add(expandClass)
+    aboutText.classList.add(expandClass)
+    expandWrapper.classList.add(expandClass)
+    Button.style.display = "none"
+  };
+  moreBtn.addEventListener("click", addExpand);
+
+  // Step 1: Change the layout of the extended components
+  // Step 2: extend paragraph = replace short paragraph with long paragraph
+  // Step 3: replace expandBtn with shrinkBtn
+</script>
