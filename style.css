@@ -108,7 +108,7 @@ h3 {
 }
 
 .row.expand {
-  flex-direction: column-reverse;
+  flex-direction: column;
   transition: flex 1s;
 }
 
@@ -142,8 +142,24 @@ h3 {
 
 .expand-wrapper.expand {
   display: block;
+  transition: 0.3s;
 }
 
+.mt-15 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.rounded.mt-15 .mt-15 {
+  text-align: center;
+}
+
+.expand.expand-wrapper {
+  text-align: center;
+}
+.expand.expand-wrapper div {
+  text-align: left;
+}
 
 /* Layout */
 
@@ -167,8 +183,11 @@ h3 {
   line-height: 1;
   border-radius: var(--border-radius);
 }
-.bt:focus {
+.btn:focus {
   outline: 0;
+}
+.btn:hover {
+  cursor: pointer;
 }
 .btn-default {
   color: #fff;
@@ -370,9 +389,11 @@ h3 {
 .about-content .skills {
   flex: 0 0 50%;
   max-width: 50%;
+  transition: 0.3s;
 }
 .facts {
   width: 100%;
+  transition: width 0.3s;
 }
 .rounded {
   background-color: var(--color-white);
@@ -430,6 +451,13 @@ h3 {
 .fact-item i {
   font-size: var(--h1-font-size);
   color: var(--color-primary);
+}
+
+.about_img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+  width: 60%;
 }
 
 /* Portfolio */
@@ -757,7 +785,8 @@ h3 {
 .contact-area textarea {
   resize: none;
 }
-.contact-input:focus + .contact-label, .contact-input.value + .contact-label {
+.contact-input:focus + .contact-label,
+.contact-input.value + .contact-label {
   top: -0.75rem;
   left: 0;
   z-index: 10;
@@ -942,7 +971,7 @@ h3 {
   bottom: -100px;
   transform: translateX(-50%);
   border-radius: var(--border-radius);
-  transition: bottom .4s;
+  transition: bottom 0.4s;
 }
 
 #snackbar.show {
