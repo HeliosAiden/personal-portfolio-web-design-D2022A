@@ -985,6 +985,15 @@ h3 {
 }
 
 @media only screen and (max-width: 958px) {
+  .facts.expand {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--m-1);
+  }
+  .expand.expand-wrapper {
+    width: 100%;
+  }
   .customize-theme .card {
     width: 58vw;
   }
@@ -1084,7 +1093,7 @@ h3 {
     margin-bottom: var(--m-1-5);
   }
   .fact-item {
-    flex: 0 0 50%;
+    flex: 0 0 50% !important;
     max-width: 50%;
     margin-bottom: var(--m-1-5);
   }

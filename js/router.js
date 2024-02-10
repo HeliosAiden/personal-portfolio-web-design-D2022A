@@ -2,9 +2,10 @@ const route = (event) => {
   event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, "", event.target.href);
+  handleLocation();
 };
 
-const rootRepo = 'personal-portfolio-web-design-D2022A'
+const rootRepo = "personal-portfolio-web-design-D2022A"
 
 const routes = {
   404: "/pages/404.html",
