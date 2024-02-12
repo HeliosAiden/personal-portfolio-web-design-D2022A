@@ -323,6 +323,7 @@ h3 {
   bottom: var(--m-2);
   left: 0;
   width: 100%;
+  display: none;
 }
 .scroll-header {
   box-shadow: 0 1px 4px rgba(165, 125, 125, 0.02);
@@ -1104,6 +1105,10 @@ h3 {
 }
 
 @media screen and (max-width: 576px) {
+  .scroll-down {
+    display: block;
+  }
+
   .customize-theme .card {
     width: 90vw;
     padding: 1rem;
