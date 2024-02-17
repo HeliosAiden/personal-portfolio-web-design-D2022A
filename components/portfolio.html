@@ -18,7 +18,7 @@
   <div class="portfolio-pagination"></div>
 </div>
 <script type="module">
-  import portfolios from "./constants/portfolio.js";
+  import portfolios from './constants/portfolio.js'
 
   // Generate portfolio item
   const generatePortfolio = (item) => {
@@ -242,24 +242,24 @@
   const filterPortfolios = (filterValue, showCount) => {
     let maxCount = 0;
     for (let k = 0; k < totalPortfolioItem; k++) {
-        if (filterValue === portfolioItems[k].getAttribute("data-category")) {
-          if (maxCount < showCount) {
-            portfolioItems[k].classList.remove("hide");
-            portfolioItems[k].classList.add("show");
-            maxCount++;
-          }
-        } else {
-          portfolioItems[k].classList.add("hide");
-          portfolioItems[k].classList.remove("show");
+      if (filterValue === portfolioItems[k].getAttribute("data-category")) {
+        if (maxCount < showCount) {
+          portfolioItems[k].classList.remove("hide");
+          portfolioItems[k].classList.add("show");
+          maxCount++;
         }
-        if (filterValue === "all") {
-          if (k < showCount) {
-            portfolioItems[k].classList.remove("hide");
-            portfolioItems[k].classList.add("show");
-          }
+      } else {
+        portfolioItems[k].classList.add("hide");
+        portfolioItems[k].classList.remove("show");
+      }
+      if (filterValue === "all") {
+        if (k < showCount) {
+          portfolioItems[k].classList.remove("hide");
+          portfolioItems[k].classList.add("show");
         }
       }
-  }
+    }
+  };
 
   // Filter button
 
@@ -268,7 +268,7 @@
       document.querySelector(".active").classList.remove("active");
       e.target.classList.add("active");
       const filterValue = e.target.getAttribute("data-filter");
-      filterPortfolios(filterValue, showCount)
+      filterPortfolios(filterValue, showCount);
       generatePageBtn(filterValue, showCount);
     });
   }
